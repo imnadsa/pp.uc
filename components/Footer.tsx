@@ -44,34 +44,11 @@ export default function Footer() {
           {/* --- ВЕРХНЯЯ ЧАСТЬ --- */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 border-b border-gray-800 pb-12">
             
-            {/* 1. ЛОГОТИП И РЕЙТИНГ */}
-            <div className="lg:col-span-5 flex flex-col items-start relative">
+            {/* 1. РЕЙТИНГ */}
+            <div className="lg:col-span-5 flex flex-col items-start">
               
-              {/* Логотип (эффект закладки) */}
-              <div className="absolute -top-44 left-0 flex flex-col gap-4">
-                 {/* Иконка */}
-                 <div className="w-28 h-28 lg:w-32 lg:h-32 text-[#3BC3F3] drop-shadow-2xl">
-                   <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                      <path d="M108 0H12V103.369C12 104.596 12.3634 105.795 13.0444 106.815C14.1958 108.54 16.1326 109.576 18.2065 109.576H19.1077C21.0388 109.576 22.9028 108.868 24.3469 107.586L50.2682 84.5736C53.0501 82.104 56.6409 80.74 60.3609 80.74C64.0809 80.74 67.6717 82.104 70.4536 84.5736L96.6819 107.858C97.9282 108.965 99.5426 109.576 101.209 109.576C103.221 109.576 105.136 108.683 106.425 107.138C107.443 105.918 108 104.38 108 102.792V0Z" fill="currentColor"/>
-                   </svg>
-                 </div>
-                 
-                 {/* Текст логотипа */}
-                 <div className="flex flex-col mt-2">
-                  <span className="text-3xl lg:text-5xl font-black text-white uppercase leading-none tracking-wide">
-                    ПОЛНЫЙ<br/>ПОРЯДОК <sup className="text-lg text-gray-500">®</sup>
-                  </span>
-                  <span className="text-base text-gray-400 font-medium mt-3 tracking-widest uppercase">
-                    Ортодонтия и стоматология
-                  </span>
-                </div>
-              </div>
-              
-              {/* Распорка */}
-              <div className="h-56 lg:h-64 block w-full"></div>
-
               {/* Рейтинг */}
-              <div className="flex items-center gap-6 mt-4">
+              <div className="flex items-center gap-6">
                  <div className="text-6xl font-black text-[#3BC3F3]">4.9</div>
                  <div className="text-base text-gray-400 leading-snug">
                    Средняя оценка на основе<br/>
