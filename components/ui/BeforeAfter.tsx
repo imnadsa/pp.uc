@@ -54,11 +54,11 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
   return (
     <div 
       ref={containerRef}
-      className="relative w-full aspect-[4/3] overflow-hidden select-none cursor-ew-resize group rounded-t-[2rem]" // Скругление только сверху, как у карточки
+      className="relative w-full aspect-[4/3] overflow-hidden select-none cursor-ew-resize group rounded-t-[2rem]"
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}
     >
-      {/* 1. ФОТО "ПОСЛЕ" (Нижний слой, правая часть) */}
+      {/* 1. ФОТО "ПОСЛЕ" */}
       <Image 
         src={afterImage} 
         alt="После" 
@@ -66,13 +66,12 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
         className="object-cover pointer-events-none"
       />
       
-      {/* 2. ФОТО "ДО" (Верхний слой, левая часть, обрезается) */}
+      {/* 2. ФОТО "ДО" */}
       <div 
         className="absolute top-0 left-0 h-full overflow-hidden"
         style={{ width: `${sliderPosition}%` }}
       >
         <div className="relative w-full h-full">
-           {/* Чтобы картинка не сжималась, растягиваем её контейнер на 100vw или широкую фиксированную ширину */}
            <div className="absolute inset-0 w-[200vw] lg:w-[1000px] h-full pointer-events-none"> 
              <Image 
               src={beforeImage} 
@@ -84,25 +83,30 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
         </div>
       </div>
 
-      {/* 3. ГОЛУБАЯ ЛИНИЯ (Разделитель) */}
+      {/* 3. ГОЛУБАЯ ЛИНИЯ */}
       <div 
         className="absolute top-0 bottom-0 w-[2px] bg-[#3BC3F3] z-20 pointer-events-none"
         style={{ left: `${sliderPosition}%` }}
       ></div>
 
-      {/* 4. КРУГЛАЯ КНОПКА СО СТРЕЛКАМИ */}
+      {/* 4. КРУГЛАЯ КНОПКА (УВЕЛИЧЕННАЯ) */}
       <div 
-        className="absolute top-1/2 -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-[#3BC3F3] rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] z-30 pointer-events-none transform -translate-x-1/2"
+        /* 
+           ИЗМЕНЕНИЯ ЗДЕСЬ:
+           Было: w-10 h-10 lg:w-12 lg:h-12
+           Стало: w-14 h-14 lg:w-16 lg:h-16 (Круг стал больше)
+        */
+        className="absolute top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-[#3BC3F3] rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] z-30 pointer-events-none transform -translate-x-1/2"
         style={{ left: `${sliderPosition}%` }}
       >
-        {/* Стрелочки < > */}
+        {/* Стрелочки */}
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-[-2px]"/>
-          <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-[2px] hidden"/> {/* Вторая стрелка если нужна */}
-          
-          {/* Или вариант именно как на скрине (две скобки < >) */}
-          <path d="M14 16L10 12L14 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(-3, 0)"/>
-          <path d="M10 16L14 12L10 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(3, 0)"/>
+          {/* 
+             ИЗМЕНЕНИЯ ЗДЕСЬ:
+             Увеличил отступ (translate) с 3 до 6, чтобы стрелки разъехались 
+          */}
+          <path d="M14 16L10 12L14 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(-6, 0)"/>
+          <path d="M10 16L14 12L10 8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" transform="translate(6, 0)"/>
         </svg>
       </div>
 
