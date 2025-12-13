@@ -1,92 +1,158 @@
 import React from 'react';
+import Image from 'next/image';
 
-export default function Science() {
+export default function Appointment() {
   return (
-    <section className="bg-white py-12 lg:py-20 overflow-hidden">
+    <section className="py-16 lg:py-24">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+        
+        {/* Карточка */}
+        <div className="relative bg-[#A5DBF5] rounded-[2.5rem] p-8 lg:p-16 overflow-hidden shadow-2xl">
           
-          {/* 
-            --- ЛЕВАЯ КОЛОНКА (ВИДЕО) ---
-          */}
-          <div className="order-2 lg:order-1 relative w-full lg:w-[380px] flex-none mx-auto lg:mx-0">
-            {/* Контейнер видео (настроен под Shorts 9:16) */}
-            <div className="relative rounded-3xl overflow-hidden bg-black aspect-[9/16] shadow-lg border border-gray-100 max-w-[320px] mx-auto lg:max-w-none w-full">
-              <iframe 
-                src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5" 
-                // Убрали webkitAllowFullScreen и mozallowfullscreen, оставили только стандартный:
-                allowFullScreen
-                frameBorder="0" 
-                allow="clipboard-write; autoplay" 
-                className="absolute inset-0 w-full h-full"
-              ></iframe>
-            </div>
-
-            {/* Карточка врача */}
-            <div className="bg-white rounded-2xl shadow-xl p-5 lg:p-6 w-[90%] mx-auto -mt-8 relative z-10 border border-gray-100 text-center lg:text-left">
-              <h3 className="text-lg lg:text-xl font-bold text-[#287FB8] font-heading leading-tight mb-1">
-                Тихонов Андрей<br/>Викторович
-              </h3>
-              <p className="text-xs lg:text-sm text-gray-500 leading-snug">
-                к.м.н., ТОП-5 ортодонтов России,<br/>Спикер международного уровня
-              </p>
-            </div>
+          {/* --- ФОНОВАЯ СЕТКА (Декор) --- */}
+          <div className="absolute inset-0 opacity-40 pointer-events-none" 
+               style={{ backgroundImage: 'radial-gradient(#ffffff 2px, transparent 2px)', backgroundSize: '30px 30px' }}>
           </div>
 
-          {/* 
-            --- ПРАВАЯ КОЛОНКА (ТЕКСТ) ---
-          */}
-          <div className="order-1 lg:order-2 flex-1">
-            {/* Заголовок */}
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 font-heading leading-tight mb-8">
-              <span className="text-[#287FB8]">Научный подход</span> в основе каждого решения.
-            </h2>
+          {/* --- 3D ЭЛЕМЕНТЫ (Декор) --- */}
+          
+          {/* 1. Брелок СЛЕВА СВЕРХУ (как на скрине) */}
+          <div className="absolute top-[-20px] left-[-10px] lg:top-0 lg:left-0 w-24 h-24 lg:w-32 lg:h-32 rotate-[-15deg] blur-[1px] z-10 pointer-events-none">
+            <Image 
+              src="/logo-keychain.png" 
+              alt="Decoration" 
+              fill 
+              className="object-contain"
+            />
+          </div>
 
-            {/* БЛОК-РОМБ (Акцентная фраза) */}
-            <div className="relative bg-[#287FB8] text-white p-6 lg:p-8 rounded-tr-[3rem] rounded-bl-[3rem] shadow-lg mb-10 mx-2 lg:mx-0">
-               {/* Декоративный элемент */}
-               <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-bl-[3rem]"></div>
-               
-               <p className="text-lg lg:text-xl font-bold leading-relaxed relative z-10 text-center lg:text-left">
-                 «Мы не следуем моде — мы опираемся на доказательную медицину»
-               </p>
-            </div>
+          {/* 2. Брелок ПО ЦЕНТРУ (между текстом и формой) */}
+          <div className="absolute top-[60%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-20 h-20 lg:w-28 lg:h-28 rotate-[15deg] z-10 pointer-events-none hidden lg:block opacity-90">
+             <Image 
+              src="/logo-keychain.png" 
+              alt="Decoration" 
+              fill 
+              className="object-contain"
+            />
+          </div>
 
-            {/* Список */}
-            <div className="space-y-5 mb-8 pl-2">
-              <ListItem text="Все методики лечения разработаны и проверены в ходе многолетних клинических исследований, подтверждены публикациями и международными протоколами." />
-              <ListItem text="Наши врачи регулярно участвуют в международных научных конференциях, ведут собственные исследования и внедряют только те технологии, эффективность которых подтверждена." />
-            </div>
+           {/* 3. Брелок НАД ФОРМОЙ (справа сверху) */}
+           <div className="absolute top-[-30px] right-[10%] lg:right-[20%] w-20 h-20 lg:w-24 lg:h-24 rotate-[120deg] blur-[2px] opacity-80 z-10 pointer-events-none">
+             <Image 
+              src="/logo-keychain.png" 
+              alt="Decoration" 
+              fill 
+              className="object-contain"
+            />
+          </div>
 
-            {/* Цитата с простыми кавычками */}
-            <div className="flex gap-4 mt-8 bg-gray-50 p-6 rounded-2xl border-l-4 border-[#287FB8]">
-              <div className="shrink-0">
-                {/* Простая иконка кавычек */}
-                <span className="text-5xl leading-none text-[#287FB8] font-serif">“</span>
+          {/* 4. ПОДАРОК (Торчит ТОЛЬКО ШАПОЧКА) */}
+          {/* -bottom-32 и -bottom-40 утапливают его глубоко вниз */}
+          <div className="absolute -bottom-24 lg:-bottom-48 left-1/2 lg:left-[45%] -translate-x-1/2 w-56 h-56 lg:w-80 lg:h-80 z-20 pointer-events-none">
+             <Image 
+              src="/present.png" 
+              alt="Gift" 
+              fill 
+              className="object-contain drop-shadow-2xl"
+            />
+          </div>
+
+
+          {/* --- КОНТЕНТ --- */}
+          <div className="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start lg:items-center">
+            
+            {/* ЛЕВАЯ ЧАСТЬ (Офферы) */}
+            <div>
+              <h2 className="text-3xl lg:text-5xl font-black text-gray-900 font-heading leading-tight mb-8">
+                Запишитесь на <br className="hidden lg:block"/>
+                бесплатную консультацию
+              </h2>
+              
+              <div className="space-y-4 mb-10">
+                {/* Оффер 1 */}
+                <div className="flex items-start gap-4 bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-white/40 shadow-sm hover:scale-[1.02] transition-transform duration-300">
+                   <div className="w-10 h-10 rounded-full bg-[#2274a4] flex items-center justify-center shrink-0 text-white mt-1">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                   </div>
+                   <div>
+                     <p className="text-gray-900 font-bold text-lg lg:text-xl leading-tight">
+                       Бесплатная <span className="text-[#2274a4]">первичная консультация</span> + КЛКТ
+                     </p>
+                     <p className="text-sm text-gray-600 mt-1">Полная диагностика в подарок</p>
+                   </div>
+                </div>
+
+                {/* Оффер 2 */}
+                <div className="flex items-start gap-4 bg-white/60 backdrop-blur-sm p-4 rounded-2xl border border-white/40 shadow-sm hover:scale-[1.02] transition-transform duration-300">
+                   <div className="w-10 h-10 rounded-full bg-[#2274a4] flex items-center justify-center shrink-0 text-white mt-1">
+                      <span className="font-black text-sm">%</span>
+                   </div>
+                   <div>
+                     <p className="text-gray-900 font-bold text-lg lg:text-xl leading-tight">
+                       Рассрочка <span className="text-[#2274a4]">0%</span> на <span className="uppercase text-[#2274a4]">все время</span> лечения
+                     </p>
+                     <p className="text-sm text-gray-600 mt-1">Фиксируем цену в договоре</p>
+                   </div>
+                </div>
               </div>
-              <p className="text-gray-600 italic text-sm lg:text-base leading-relaxed pt-2">
-                Здесь нет места догадкам: каждый план лечения — это индивидуальный проект, основанный на научных данных, точных расчетах и биомеханике.
-              </p>
-            </div>
-          </div>
 
+            </div>
+
+            {/* ПРАВАЯ ЧАСТЬ (Форма) */}
+            <div className="bg-white/40 backdrop-blur-md p-6 lg:p-10 rounded-3xl border border-white/50 shadow-sm">
+              <form className="space-y-6">
+                
+                {/* Инпут телефона */}
+                <div>
+                  <input 
+                    type="tel" 
+                    placeholder="+7 (999) 999-99-99" 
+                    className="w-full bg-white border border-gray-200 text-gray-900 rounded-xl px-5 py-4 outline-none focus:border-[#2274a4] focus:ring-2 focus:ring-[#2274a4]/30 transition-all placeholder:text-gray-400 text-lg shadow-sm"
+                  />
+                </div>
+
+                {/* Чекбоксы (Кликабельные, не заполнены по умолчанию) */}
+                <div className="space-y-3">
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
+                    <div className="relative flex items-center mt-0.5">
+                      {/* Убрал defaultChecked */}
+                      <input type="checkbox" className="peer sr-only" />
+                      {/* Рамка чекбокса: при чеке становится синей (#2274a4) */}
+                      <div className="w-5 h-5 border-2 border-[#2274a4] rounded bg-white peer-checked:bg-[#2274a4] transition-all"></div>
+                      {/* Галочка */}
+                      <svg className="absolute w-3 h-3 text-white left-1 top-1 opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span className="text-xs text-gray-600 leading-tight group-hover:text-[#2274a4] transition-colors">
+                      Я согласен на <a href="#" className="underline decoration-gray-400 hover:text-[#2274a4]">Обработку персональных данных</a>
+                    </span>
+                  </label>
+
+                  <label className="flex items-start gap-3 cursor-pointer group select-none">
+                    <div className="relative flex items-center mt-0.5">
+                      {/* Убрал defaultChecked */}
+                      <input type="checkbox" className="peer sr-only" />
+                      <div className="w-5 h-5 border-2 border-[#2274a4] rounded bg-white peer-checked:bg-[#2274a4] transition-all"></div>
+                      <svg className="absolute w-3 h-3 text-white left-1 top-1 opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span className="text-xs text-gray-600 leading-tight group-hover:text-[#2274a4] transition-colors">
+                      Я ознакомлен с <a href="#" className="underline decoration-gray-400 hover:text-[#2274a4]">Условиями сбора данных</a>
+                    </span>
+                  </label>
+                </div>
+
+                {/* Кнопка (Синяя #2274a4) */}
+                <button className="w-full py-4 rounded-xl bg-[#2274a4] hover:bg-[#1b5c82] text-white font-bold text-lg shadow-[0_4px_20px_rgba(34,116,164,0.3)] hover:shadow-[0_6px_25px_rgba(34,116,164,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 relative overflow-hidden group">
+                  <span className="relative z-10">Записаться на консультацию</span>
+                  {/* Блик на кнопке */}
+                  <div className="absolute top-0 -left-full w-1/2 h-full bg-white/20 -skew-x-[20deg] group-hover:animate-shine"></div>
+                </button>
+
+              </form>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-// Компонент списка
-function ListItem({ text }: { text: string }) {
-  return (
-    <div className="flex items-start">
-      {/* Иконка ромбика */}
-      <div className="shrink-0 mt-1.5 mr-4">
-        <div className="w-3 h-3 bg-[#287FB8] rotate-45"></div>
-      </div>
-      <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-        {text}
-      </p>
-    </div>
   );
 }
