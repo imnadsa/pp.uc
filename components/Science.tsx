@@ -14,7 +14,7 @@ export default function Science() {
           */}
           <div className="order-2 lg:order-1 relative w-full lg:w-[380px] flex-none mx-auto lg:mx-0">
             <iframe
-              src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5
+              src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5"
               frameBorder="0" 
               allow="clipboard-write; autoplay" 
               webkitAllowFullScreen 
