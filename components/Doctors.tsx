@@ -6,11 +6,10 @@ import Image from 'next/image';
 const doctorsData = [
   {
     id: 1,
-    name: "Тихонов Андрей Викторович", // Поменял имя под твой скрин
+    name: "Тихонов Андрей Викторович",
     specialty: "Международный эксперт, ТОП-5 ортодонт России, кандидат наук",
     tagline: "Научный эксперт",
     experience: "24 года",
-    // НОВОЕ ПОЛЕ
     quote: "Мы помогаем людям обрести уверенность и повысить качество жизни, обеспечивая им естественную красивую улыбку.",
     image: "/doctor4.png",
   },
@@ -20,7 +19,6 @@ const doctorsData = [
     specialty: "Ортодонт, заведующий отделением ортодонтии",
     tagline: "Создаю улыбки мечты",
     experience: "21 лет",
-    // НОВОЕ ПОЛЕ
     quote: "Я стремлюсь к тому, чтобы объединять практическое мастерство и научные достижения, создавая новые стандарты в ортодонтии. Моя цель — помогать коллегам расти профессионально и делать улыбки пациентов красивыми и здоровыми",
     image: "/doctor3.png",
   },
@@ -67,12 +65,15 @@ export default function Doctors() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
+      // Ширина карточки + отступ
       const cardWidth = scrollContainerRef.current.firstElementChild?.clientWidth || 300;
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+      // Добавляем 24px (gap-6) к сдвигу
+      const scrollAmount = direction === 'left' ? -(cardWidth + 24) : (cardWidth + 24); 
       
       scrollContainerRef.current.scrollBy({
         left: scrollAmount,
-        behavior: 'smooth',
+        // Обязательный класс для плавной прокрутки
+        behavior: 'smooth', 
       });
     }
   };
@@ -106,12 +107,17 @@ export default function Doctors() {
         {/* Карусель */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-5 px-5 lg:mx-0 lg:px-0 scrollbar-hide"
+          // ИЗМЕНЕНИЯ ЗДЕСЬ: 
+          // 1. overflow-x-hidden (отключает скролл пальцем)
+          // 2. scroll-smooth (для плавной прокрутки кнопками)
+          // 3. Убраны snap-классы
+          className="flex gap-6 overflow-x-hidden scroll-smooth pb-8 -mx-5 px-5 lg:mx-0 lg:px-0 scrollbar-hide"
         >
           {doctorsData.map((doc) => (
             <div 
               key={doc.id} 
-              className="flex-none w-[85vw] sm:w-[450px] lg:w-[480px] snap-center"
+              // w-[85vw] - остается для мобильных, чтобы карточка занимала большую часть экрана
+              className="flex-none w-[85vw] sm:w-[450px] lg:w-[480px]" 
             >
               <div className="relative bg-[#effaff] rounded-[2.5rem] border-2 border-[#3AC3F3] h-[500px] lg:h-[550px] overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                 
@@ -135,7 +141,7 @@ export default function Doctors() {
                     </span>
                   </div>
 
-                  {/* --- НОВЫЙ БЛОК: Цитата врача --- */}
+                  {/* Цитата врача */}
                   {doc.quote && (
                     <div className="mb-auto mt-2">
                        <div className="relative pl-3 border-l-2 border-[#3AC3F3]">
