@@ -10,7 +10,6 @@ export default function Footer() {
   const [activeMap, setActiveMap] = useState<string | null>(null);
 
   const clinics = [
-    // ... (данные клиник остались прежними)
     {
       city: "Санкт-Петербург",
       address: "м. Международная, ул. Турку, д. 11, к. 2",
@@ -39,23 +38,19 @@ export default function Footer() {
 
   return (
     <>
-      {/* ИЗМЕНЕНИЕ: Цвет фона #262626 */}
       <footer className="bg-[#262626] pt-12 pb-8 text-sm text-gray-300 relative mt-32">
         <div className="container-custom">
           
           {/* --- ВЕРХНЯЯ ЧАСТЬ --- */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 border-b border-gray-800 pb-12">
             
-            {/* 1. ЛОГОТИП И РЕЙТИНГ (СКОРРЕКТИРОВАНЫ ПОЗИЦИИ) */}
+            {/* 1. ЛОГОТИП И РЕЙТИНГ */}
             <div className="lg:col-span-5 flex flex-col items-start relative">
               
-              {/* 
-                 ИЗМЕНЕНИЕ: absolute -top-[4rem] 
-                 Поднимаем блок с SVG и текстом ровно на высоту SVG (w-28, h-28), 
-                 чтобы нижний край голубого флага был на границе футера.
-              */}
-              <div className="absolute -top-32 lg:-top-40 left-0 flex flex-col gap-4"> 
-                 {/* Иконка (w-28 h-28) */}
+              {/* Логотип (эффект закладки) */}
+              {/* ИЗМЕНЕНИЕ: Увеличен отрицательный отступ -top-44 lg:-top-60 */}
+              <div className="absolute -top-44 lg:-top-60 left-0 flex flex-col gap-4"> 
+                 {/* Иконка */}
                  <div className="w-28 h-28 lg:w-32 lg:h-32 text-[#3BC3F3] drop-shadow-2xl">
                    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                       <path d="M108 0H12V103.369C12 104.596 12.3634 105.795 13.0444 106.815C14.1958 108.54 16.1326 109.576 18.2065 109.576H19.1077C21.0388 109.576 22.9028 108.868 24.3469 107.586L50.2682 84.5736C53.0501 82.104 56.6409 80.74 60.3609 80.74C64.0809 80.74 67.6717 82.104 70.4536 84.5736L96.6819 107.858C97.9282 108.965 99.5426 109.576 101.209 109.576C103.221 109.576 105.136 108.683 106.425 107.138C107.443 105.918 108 104.38 108 102.792V0Z" fill="currentColor"/>
@@ -73,7 +68,7 @@ export default function Footer() {
                 </div>
               </div>
               
-              {/* Распорка (чтобы контент футера начинался ниже логотипа) */}
+              {/* Распорка */}
               <div className="h-56 lg:h-64 block w-full"></div>
 
               {/* Рейтинг */}
@@ -168,6 +163,7 @@ export default function Footer() {
             <div className="space-y-1 lg:text-right">
               <p>ООО "Улыбка в порядке"</p>
               <p>ИНН 7816704653</p>
+              <p>Лицензия № ЛО-78-01-011234 от 25.10.2019</p>
             </div>
           </div>
 
