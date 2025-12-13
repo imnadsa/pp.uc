@@ -23,6 +23,16 @@ const config: Config = {
         sans: ['var(--font-navigo)', 'system-ui', 'sans-serif'],
         heading: ['var(--font-coolvetica)', 'system-ui', 'sans-serif'],
       },
+      // Добавили анимацию блика
+      keyframes: {
+        shine: {
+          '0%': { left: '-100%' },
+          '100%': { left: '200%' },
+        }
+      },
+      animation: {
+        shine: 'shine 1.5s infinite linear',
+      }
     },
   },
   plugins: [],
