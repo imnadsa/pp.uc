@@ -36,7 +36,7 @@ const cases = [
 
 export default function Results() {
   return (
-    <section className="py-16 lg:py-24 bg-white" id="results">
+    <section className="py-16 lg:py-24 bg-[#eef7fd]" id="results">
       <div className="container-custom">
         
         {/* Заголовок и навигация */}
