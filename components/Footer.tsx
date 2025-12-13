@@ -44,9 +44,19 @@ export default function Footer() {
           {/* --- ВЕРХНЯЯ ЧАСТЬ --- */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 border-b border-gray-800 pb-12">
             
-            {/* 1. РЕЙТИНГ */}
+            {/* 1. ЛОГОТИП И РЕЙТИНГ */}
             <div className="lg:col-span-5 flex flex-col items-start">
               
+              {/* Текст логотипа */}
+              <div className="flex flex-col mb-8">
+                <span className="text-3xl lg:text-5xl font-black text-white uppercase leading-none tracking-wide">
+                  ПОЛНЫЙ<br/>ПОРЯДОК <sup className="text-lg text-gray-500">®</sup>
+                </span>
+                <span className="text-base text-gray-400 font-medium mt-3 tracking-widest uppercase">
+                  Ортодонтия и стоматология
+                </span>
+              </div>
+
               {/* Рейтинг */}
               <div className="flex items-center gap-6">
                  <div className="text-6xl font-black text-[#3BC3F3]">4.9</div>
