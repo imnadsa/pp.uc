@@ -18,17 +18,17 @@ export default function Info() {
         {/* Основная сетка */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* 1. Левая большая фотография (Заглушка) */}
-          <div className="lg:col-span-5 min-h-[400px] lg:min-h-[auto] relative rounded-3xl overflow-hidden group">
+          {/* 1. ЛЕВАЯ КОЛОНКА - Большая фотография */}
+          <div className="lg:col-span-5 relative rounded-3xl overflow-hidden group min-h-[400px] h-full">
             <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-medium text-lg text-center p-6">
               [Фото команды врачей в кабинете]
             </div>
-            {/* Градиент поверх фото для красоты */}
+            {/* Градиент поверх фото */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#287FB8]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
 
-          {/* 2. Центральная колонка с карточками (4 блока) */}
-          <div className="lg:col-span-4 grid grid-cols-1 gap-4">
+          {/* 2. ЦЕНТРАЛЬНАЯ КОЛОНКА - 3 карточки */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
             
             {/* Карточка 1 */}
             <InfoCard 
@@ -50,27 +50,32 @@ export default function Info() {
               prefix="От"
               label="средний срок лечения" 
             />
+          </div>
 
-            {/* Карточка 4 */}
+          {/* 3. ПРАВАЯ КОЛОНКА - Портрет + 4-я карточка */}
+          <div className="lg:col-span-3 flex flex-col gap-4">
+            
+            {/* Портрет главврача (занимает всё свободное место сверху) */}
+            <div className="flex-grow relative rounded-3xl overflow-hidden min-h-[250px]">
+              <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-medium text-lg text-center p-6">
+                [Портрет главврача]
+              </div>
+            </div>
+
+            {/* Карточка 4 (переехала сюда) */}
             <InfoCard 
               value="100%" 
               label="получили гарантию на результат" 
             />
           </div>
 
-          {/* 3. Правая фотография (Заглушка) - скрываем на мобильном, если нужно, или оставляем */}
-          <div className="lg:col-span-3 min-h-[300px] lg:min-h-[auto] relative rounded-3xl overflow-hidden hidden lg:block">
-            <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-medium text-lg text-center p-6">
-              [Портрет главврача]
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
-// Компонент карточки с цифрами
+// Компонент карточки
 interface InfoCardProps {
   value: string;
   label: string;
@@ -80,8 +85,8 @@ interface InfoCardProps {
 
 function InfoCard({ value, label, prefix, suffix }: InfoCardProps) {
   return (
-    <div className="bg-white p-6 lg:p-7 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 relative flex flex-col justify-center h-full min-h-[140px]">
-      {/* Акцентная точка в углу */}
+    <div className="bg-white p-6 lg:p-7 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 relative flex flex-col justify-center flex-1 min-h-[140px]">
+      {/* Акцентная точка */}
       <div className="absolute top-4 right-4 w-3 h-3 bg-[#287FB8] rounded-full animate-pulse"></div>
       
       <div className="text-[#287FB8] font-black font-heading leading-none mb-2">
