@@ -1,0 +1,107 @@
+'use client';
+
+import React from 'react';
+import BeforeAfter from './ui/BeforeAfter'; // Импорт компонента из шага 1
+import Button from './ui/Button';
+
+// Данные (заглушки)
+const cases = [
+  {
+    id: 1,
+    title: "Брекет-система DQ2 на верхнюю и нижнюю челюсть",
+    description: "Исправление скученности зубов и глубокого прикуса.",
+    duration: "28 месяцев",
+    age: "46 лет",
+    before: "/case1-before.jpg", // Закинь эти картинки в public
+    after: "/case1-after.jpg",
+  },
+  {
+    id: 2,
+    title: "Глубокий прикус",
+    description: "Глубокий прикус, плохие контакты стали причиной проблем со здоровьем зубов и мягких тканей.",
+    duration: "21 месяц",
+    age: "15 лет",
+    before: "/case2-before.jpg",
+    after: "/case2-after.jpg",
+  },
+  {
+    id: 3,
+    title: "Имплант 6, 7 и 8 зуба",
+    description: "В приведенном клиническом случае ортодонты использовали индивидуальную цифровую брекет-систему.",
+    duration: "2,5 года",
+    age: "32 года",
+    before: "/case3-before.jpg",
+    after: "/case3-after.jpg",
+  },
+];
+
+export default function Results() {
+  return (
+    <section className="py-16 lg:py-24 bg-white" id="results">
+      <div className="container-custom">
+        
+        {/* Заголовок и навигация */}
+        <div className="flex justify-between items-center mb-10 lg:mb-14">
+          <h2 className="text-3xl lg:text-5xl font-black text-gray-900 font-heading">
+            Результаты лечения
+          </h2>
+          {/* Кнопки навигации (декоративные, если не делать слайдер всей секции) */}
+          <div className="hidden lg:flex gap-4">
+             <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[#3AC3F3] hover:text-[#3AC3F3] transition-colors">
+               ←
+             </button>
+             <button className="w-12 h-12 rounded-full bg-[#3AC3F3] flex items-center justify-center text-white shadow-lg hover:bg-[#287FB8] transition-colors">
+               →
+             </button>
+          </div>
+        </div>
+
+        {/* Сетка карточек */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cases.map((item) => (
+            <div key={item.id} className="bg-gray-50 rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col">
+              
+              {/* Блок Слайдера */}
+              <div className="relative">
+                 {/* Используем наш компонент */}
+                 <BeforeAfter beforeImage={item.before} afterImage={item.after} />
+              </div>
+
+              {/* Текстовая часть */}
+              <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight min-h-[3.5rem]">
+                  {item.title}
+                </h3>
+
+                <div className="space-y-4 mb-6 flex-grow">
+                  <div>
+                    <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Описание</div>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Срок лечения</div>
+                      <div className="text-gray-900 font-medium">{item.duration}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Возраст</div>
+                      <div className="text-gray-900 font-medium">{item.age}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <Button className="w-full justify-center text-sm py-3" variant="secondary">
+                   Подробнее о кейсе
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
