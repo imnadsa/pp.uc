@@ -8,29 +8,21 @@ export default function Science() {
           
           {/* 
             --- ЛЕВАЯ КОЛОНКА (ВИДЕО) ---
-            Сделал фиксированную ширину на десктопе (lg:w-[380px]), 
-            чтобы видео не растягивалось на пол-экрана.
-            flex-none не дает ему сжиматься.
+            Сделал фиксированную ширину на десктопе, 
+            чтобы видео не растягивалось.
           */}
           <div className="order-2 lg:order-1 relative w-full lg:w-[380px] flex-none mx-auto lg:mx-0">
-            <iframe
-              src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5"
-              frameBorder="0" 
-              allow="clipboard-write; autoplay" 
-              webkitAllowFullScreen 
-              mozallowfullscreen 
-              allowFullScreen 
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
-
-              {/* Кнопка Play (если используете обложку поверх плеера) */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-16 h-16 bg-[#287FB8]/90 rounded-full flex items-center justify-center shadow-xl backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
+            {/* Контейнер видео (настроен под Shorts 9:16) */}
+            <div className="relative rounded-3xl overflow-hidden bg-black aspect-[9/16] shadow-lg border border-gray-100 max-w-[320px] mx-auto lg:max-w-none w-full">
+              <iframe 
+                src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5" 
+                frameBorder="0" 
+                allow="clipboard-write; autoplay" 
+                webkitAllowFullScreen 
+                mozallowfullscreen 
+                allowFullScreen 
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
             </div>
 
             {/* Карточка врача */}
@@ -46,7 +38,7 @@ export default function Science() {
 
           {/* 
             --- ПРАВАЯ КОЛОНКА (ТЕКСТ) ---
-            Занимает все оставшееся место (flex-1)
+            Занимает все оставшееся место
           */}
           <div className="order-1 lg:order-2 flex-1">
             {/* Заголовок */}
