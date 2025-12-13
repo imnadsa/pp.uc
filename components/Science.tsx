@@ -8,8 +8,6 @@ export default function Science() {
           
           {/* 
             --- ЛЕВАЯ КОЛОНКА (ВИДЕО) ---
-            Сделал фиксированную ширину на десктопе, 
-            чтобы видео не растягивалось.
           */}
           <div className="order-2 lg:order-1 relative w-full lg:w-[380px] flex-none mx-auto lg:mx-0">
             {/* Контейнер видео (настроен под Shorts 9:16) */}
@@ -38,7 +36,6 @@ export default function Science() {
 
           {/* 
             --- ПРАВАЯ КОЛОНКА (ТЕКСТ) ---
-            Занимает все оставшееся место
           */}
           <div className="order-1 lg:order-2 flex-1">
             {/* Заголовок */}
@@ -48,7 +45,7 @@ export default function Science() {
 
             {/* БЛОК-РОМБ (Акцентная фраза) */}
             <div className="relative bg-[#287FB8] text-white p-6 lg:p-8 rounded-tr-[3rem] rounded-bl-[3rem] shadow-lg mb-10 mx-2 lg:mx-0">
-               {/* Декоративный элемент (полупрозрачный ромб на фоне) */}
+               {/* Декоративный элемент */}
                <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-bl-[3rem]"></div>
                
                <p className="text-lg lg:text-xl font-bold leading-relaxed relative z-10 text-center lg:text-left">
