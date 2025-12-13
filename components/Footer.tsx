@@ -149,7 +149,6 @@ export default function Footer() {
             <div className="space-y-1 lg:text-right">
               <p>ООО "Улыбка в порядке"</p>
               <p>ИНН 7816704653</p>
-              <p>Лицензия № ЛО-78-01-011234 от 25.10.2019</p>
             </div>
           </div>
 
