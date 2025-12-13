@@ -1,99 +1,58 @@
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-[#f5f7ff] to-[#e8ebff] py-20 relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute top-[-40%] right-[-10%] w-[800px] h-[800px] bg-gradient-radial from-[rgba(92,90,244,0.08)] to-transparent rounded-full"></div>
+    <section className="bg-gradient-to-br from-[#e8ecff] via-[#f0f2ff] to-[#e3e7ff] py-16 lg:py-24 relative overflow-hidden">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-[-20%] right-[-15%] w-[600px] h-[600px] bg-gradient-radial from-primary/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl"></div>
+      </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-2 gap-16 items-center">
-          {/* Left Side */}
-          <div>
-            <h2 className="text-[52px] font-black leading-[1.15] mb-6 text-gray-900 tracking-tight font-heading">
-              Восстановите<br />зуб за 3 визита
-            </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-12 lg:gap-16 items-center">
+          {/* Left Side - Text Content */}
+          <div className="order-2 lg:order-1">
+            {/* Main Heading */}
+            <h1 className="text-[42px] md:text-[52px] lg:text-[56px] xl:text-[62px] font-black leading-[1.1] mb-8 text-gray-900 font-heading tracking-[0.02em]">
+              Выравниваем прикус и&nbsp;создаём идеальную улыбку
+            </h1>
 
-            {/* Guarantee Badge */}
-            <div className="inline-flex items-center gap-3 bg-[#e8f4ff] px-5 py-3 rounded-full mb-9">
-              <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
-                ✓
-              </div>
-              <span className="text-sm font-semibold text-primary">
-                Пожизненная гарантия на имплант
-              </span>
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed font-medium">
+              С заботой о комфорте. Научный подход без компромиссов.
+            </p>
+
+            <p className="text-base md:text-lg text-gray-600 mb-10 leading-relaxed">
+              Запишитесь на бесплатную консультацию с ортодонтом уже сегодня!
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <a 
+                href="#appointment" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary-dark text-white rounded-full font-bold text-base transition-all duration-300 shadow-[0_8px_24px_rgba(45,43,143,0.3)] hover:bg-[#1f1d6b] hover:shadow-[0_12px_32px_rgba(45,43,143,0.4)] hover:-translate-y-0.5"
+              >
+                Записаться на приём
+              </a>
+              <a 
+                href="#pricing" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-dark border-2 border-primary-dark rounded-full font-bold text-base transition-all duration-300 hover:bg-primary-dark hover:text-white"
+              >
+                Узнать стоимость
+              </a>
             </div>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-5 mb-9">
-              <FeatureItem 
-                icon="🦷" 
-                text="Бесплатный план лечения"
-                iconColor="purple"
-              />
-              <FeatureItem 
-                icon="➕" 
-                text="Бесплатная гигиена полости рта по швейцарскому протоколу GBT"
-                iconColor="gray"
-              />
-              <FeatureItem 
-                icon="👤" 
-                text="Персональный менеджер на связи 7 дней в неделю"
-                iconColor="purple"
-              />
-              <FeatureItem 
-                icon="💳" 
-                text="Беспроцентная рассрочка, сплит платежи"
-                iconColor="gray"
-              />
+            {/* Optional: Trust indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-300">
+              <TrustItem number="24" label="года опыта" />
+              <TrustItem number="5000+" label="пациентов" />
+              <TrustItem number="100%" label="гарантия" />
+              <TrustItem number="0%" label="рассрочка" />
             </div>
-
-            {/* CTA Button */}
-            <a href="#consultation" className="btn-primary group">
-              Бесплатная консультация
-              <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
-            </a>
           </div>
 
           {/* Right Side - Doctor Card */}
-          <div className="relative">
-            {/* Rating Badge */}
-            <div className="absolute top-0 right-5 bg-white px-5 py-4 rounded-2xl shadow-[0_8px_25px_rgba(0,0,0,0.12)] text-center z-10">
-              <div>
-                <span className="text-3xl font-black text-gray-900">4.9</span>
-                <span className="text-sm text-gray-400 ml-1">из 5</span>
-              </div>
-              <div className="text-yellow-400 text-base my-1 tracking-wider">★★★★★</div>
-              <div className="flex items-center justify-center gap-1.5 text-xs text-gray-600 font-semibold mt-1">
-                <span className="inline-block bg-[#fc3f1d] text-white px-1.5 py-0.5 rounded text-[11px] font-bold">
-                  Я
-                </span>
-                Карты
-              </div>
-            </div>
-
-            {/* Doctor Card */}
-            <div className="bg-white rounded-[30px] p-8 shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-              <div className="w-full h-[450px] bg-gradient-to-br from-[#e8ebff] to-[#d5d9ff] rounded-3xl mb-6 flex items-center justify-center text-gray-400">
-                [Фото врача - Иоаниди Ираклий Анастасович]
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-2xl font-extrabold text-gray-900 mb-1 font-heading">
-                  Иоаниди Ираклий<br />Анастасович
-                </h3>
-
-                <div className="flex gap-5 justify-center mt-5">
-                  <StatBadge 
-                    icon="⏱"
-                    text="Стаж 8 лет"
-                  />
-                  <StatBadge 
-                    icon="👥"
-                    number="Более 1000 успешных"
-                    label="имплантаций"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="order-1 lg:order-2">
+            <DoctorCard />
           </div>
         </div>
       </div>
@@ -101,46 +60,88 @@ export default function Hero() {
   );
 }
 
-// Feature Item Component
-interface FeatureItemProps {
-  icon: string;
-  text: string;
-  iconColor: 'purple' | 'gray';
-}
-
-function FeatureItem({ icon, text, iconColor }: FeatureItemProps) {
-  const bgColor = iconColor === 'purple' ? 'text-primary' : 'text-gray-500';
-  
+// Doctor Card Component
+function DoctorCard() {
   return (
-    <div className="flex items-start gap-3">
-      <div className={`w-11 h-11 rounded-xl bg-white flex items-center justify-center text-xl flex-shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${bgColor}`}>
-        {icon}
+    <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[0_16px_48px_rgba(0,0,0,0.1)] max-w-[480px] mx-auto">
+      {/* Doctor Photo */}
+      <div className="relative mb-6">
+        <div className="w-full aspect-[4/5] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden">
+          <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+            [Фото - Тихонов Андрей Викторович]
+          </div>
+        </div>
+        
+        {/* Rating Badge */}
+        <div className="absolute -top-3 -right-3 bg-white px-4 py-3 rounded-xl shadow-lg">
+          <div className="text-center">
+            <div className="text-2xl font-black text-gray-900">4.9</div>
+            <div className="text-yellow-400 text-sm">★★★★★</div>
+          </div>
+        </div>
       </div>
-      <div className="text-sm text-gray-700 font-medium leading-relaxed">
-        {text}
+
+      {/* Doctor Info */}
+      <div className="text-center mb-6">
+        <div className="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Ортодонт</div>
+        <h3 className="text-xl lg:text-2xl font-bold text-gray-900 font-heading mb-1">
+          Тихонов Андрей<br/>Викторович
+        </h3>
+      </div>
+
+      {/* Achievements Grid */}
+      <div className="space-y-3">
+        <Achievement text="24 года стаж" />
+        <Achievement text="Основатель сети клиник «Полный Порядок»" />
+        <Achievement text="Основатель ПО «OrthoPlaner»" />
+        <Achievement text="Основатель и ведущий спикер «Школы Ортодонтии»" />
+        <Achievement text="Спикер международного уровня" />
+        <Achievement text="Кандидат медицинских наук" />
+        <Achievement text="ТОП-5 ортодонтов России" highlight />
       </div>
     </div>
   );
 }
 
-// Stat Badge Component
-interface StatBadgeProps {
-  icon: string;
-  text?: string;
-  number?: string;
-  label?: string;
+// Achievement Badge Component
+interface AchievementProps {
+  text: string;
+  highlight?: boolean;
 }
 
-function StatBadge({ icon, text, number, label }: StatBadgeProps) {
+function Achievement({ text, highlight }: AchievementProps) {
   return (
-    <div className="flex items-center gap-2">
-      <div className="w-9 h-9 bg-primary text-white rounded-xl flex items-center justify-center text-base">
-        {icon}
+    <div className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+      highlight 
+        ? 'bg-primary text-white font-bold' 
+        : 'bg-primary/5 hover:bg-primary/10'
+    }`}>
+      <div className={`w-2 h-2 rounded-full flex-shrink-0 ${
+        highlight ? 'bg-white' : 'bg-primary'
+      }`}></div>
+      <span className={`text-sm leading-tight ${
+        highlight ? 'text-white' : 'text-gray-800 font-medium'
+      }`}>
+        {text}
+      </span>
+    </div>
+  );
+}
+
+// Trust Item Component
+interface TrustItemProps {
+  number: string;
+  label: string;
+}
+
+function TrustItem({ number, label }: TrustItemProps) {
+  return (
+    <div className="text-center">
+      <div className="text-2xl md:text-3xl font-black text-primary-dark mb-1 font-heading">
+        {number}
       </div>
-      <div className="text-left">
-        {text && <span className="text-sm font-bold text-gray-900 block leading-tight">{text}</span>}
-        {number && <span className="text-sm font-bold text-gray-900 block leading-tight">{number}</span>}
-        {label && <span className="text-xs text-gray-600">{label}</span>}
+      <div className="text-xs md:text-sm text-gray-600 font-medium">
+        {label}
       </div>
     </div>
   );
