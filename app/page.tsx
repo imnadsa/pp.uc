@@ -4,6 +4,7 @@ import Info from "@/components/Info";
 import Science from '@/components/Science';
 import Appointment from '@/components/Appointment';
 import Results from '@/components/Results';
+import Reviews from '@/components/Reviews';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Science />
       <Appointment />
       <Results />
+      <Reviews />
     </main>
   );
 }
