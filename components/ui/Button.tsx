@@ -1,4 +1,4 @@
-import Link from 'next/link';
+мimport Link from 'next/link';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -16,37 +16,36 @@ export default function Button({
   className = '' 
 }: ButtonProps) {
   
-  const baseStyles = "inline-flex items-center gap-0 font-bold text-base lg:text-lg transition-all duration-300 group relative overflow-hidden";
-  
-  const variants = {
-    primary: `bg-gradient-to-r from-[#3AC3F3] via-[#2bb5e0] to-[#1ca3d1] text-white 
-              shadow-[0_8px_24px_rgba(58,195,243,0.35)] 
-              hover:shadow-[0_12px_32px_rgba(58,195,243,0.5)] 
-              hover:-translate-y-1`,
-    secondary: `bg-white text-[#3AC3F3] border-2 border-[#3AC3F3] 
-                hover:bg-[#3AC3F3] hover:text-white`
-  };
+  const baseStyles = "inline-flex items-center gap-2 group";
 
   const content = (
     <>
-      {/* Main button part with text */}
-      <span className="px-8 lg:px-10 py-4 rounded-l-full rounded-r-none">
+      {/* Основная часть кнопки с текстом */}
+      <span className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-gradient-to-r from-[#4338CA] via-[#6366F1] to-[#3AC3F3] text-white text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
         {children}
       </span>
       
-      {/* Arrow circle part */}
-      <span className={`w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center text-2xl lg:text-3xl
-                      ${variant === 'primary' ? 'bg-[#2bb5e0]' : 'bg-[#3AC3F3] group-hover:bg-white group-hover:text-[#3AC3F3]'} 
-                      transition-all duration-300 
-                      group-hover:scale-110`}>
-        <span className="transform group-hover:translate-x-1 transition-transform duration-300">
-          →
-        </span>
+      {/* Круг со стрелкой - отдельный элемент */}
+      <span className="w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-[#4338CA] to-[#6366F1] text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          className="transform -rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
       </span>
     </>
   );
 
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
+  const combinedClassName = `${baseStyles} ${className}`;
 
   if (href) {
     return (
