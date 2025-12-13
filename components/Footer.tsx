@@ -2,23 +2,21 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Не забудьте этот импорт
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
-  // Состояние для модального окна с картой
   const [activeMap, setActiveMap] = useState<string | null>(null);
 
-  // ДАННЫЕ КЛИНИК (Добавил поле image)
   const clinics = [
+    // ... (данные клиник остались прежними)
     {
       city: "Санкт-Петербург",
       address: "м. Международная, ул. Турку, д. 11, к. 2",
       phones: ['8 (812) 320-10-01', '8 (812) 214-99-00'],
       email: "office@ppclinic.ru",
       mapSrc: "https://yandex.ru/map-widget/v1/?ll=30.379465%2C59.866573&mode=search&oid=1321972654&ol=biz&z=16.95",
-      image: "/turku.png" // Фото из папки public
+      image: "/turku.png"
     },
     {
       city: "Санкт-Петербург",
@@ -40,21 +38,30 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-[#1F1F1F] pt-12 pb-8 text-sm text-gray-300 relative mt-32">
+      {/* ИЗМЕНЕНИЕ: Цвет фона #262626 */}
+      <footer className="bg-[#262626] pt-12 pb-8 text-sm text-gray-300 relative mt-32">
         <div className="container-custom">
           
           {/* --- ВЕРХНЯЯ ЧАСТЬ --- */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 border-b border-gray-800 pb-12">
             
-            {/* 1. ЛОГОТИП И РЕЙТИНГ */}
+            {/* 1. ЛОГОТИП И РЕЙТИНГ (СКОРРЕКТИРОВАНЫ ПОЗИЦИИ) */}
             <div className="lg:col-span-5 flex flex-col items-start relative">
-              <div className="absolute -top-32 lg:-top-44 left-0 flex flex-col gap-4">
-                 <div className="w-28 h-28 lg:w-40 lg:h-40 text-[#3BC3F3] drop-shadow-2xl">
+              
+              {/* 
+                 ИЗМЕНЕНИЕ: absolute -top-[4rem] 
+                 Поднимаем блок с SVG и текстом ровно на высоту SVG (w-28, h-28), 
+                 чтобы нижний край голубого флага был на границе футера.
+              */}
+              <div className="absolute -top-32 lg:-top-40 left-0 flex flex-col gap-4"> 
+                 {/* Иконка (w-28 h-28) */}
+                 <div className="w-28 h-28 lg:w-32 lg:h-32 text-[#3BC3F3] drop-shadow-2xl">
                    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                       <path d="M108 0H12V103.369C12 104.596 12.3634 105.795 13.0444 106.815C14.1958 108.54 16.1326 109.576 18.2065 109.576H19.1077C21.0388 109.576 22.9028 108.868 24.3469 107.586L50.2682 84.5736C53.0501 82.104 56.6409 80.74 60.3609 80.74C64.0809 80.74 67.6717 82.104 70.4536 84.5736L96.6819 107.858C97.9282 108.965 99.5426 109.576 101.209 109.576C103.221 109.576 105.136 108.683 106.425 107.138C107.443 105.918 108 104.38 108 102.792V0Z" fill="currentColor"/>
                    </svg>
                  </div>
                  
+                 {/* Текст логотипа */}
                  <div className="flex flex-col mt-2">
                   <span className="text-3xl lg:text-5xl font-black text-white uppercase leading-none tracking-wide">
                     ПОЛНЫЙ<br/>ПОРЯДОК <sup className="text-lg text-gray-500">®</sup>
@@ -64,7 +71,11 @@ export default function Footer() {
                   </span>
                 </div>
               </div>
+              
+              {/* Распорка (чтобы контент футера начинался ниже логотипа) */}
               <div className="h-56 lg:h-64 block w-full"></div>
+
+              {/* Рейтинг */}
               <div className="flex items-center gap-6 mt-4">
                  <div className="text-6xl font-black text-[#3BC3F3]">4.9</div>
                  <div className="text-base text-gray-400 leading-snug">
@@ -74,17 +85,20 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* 2. CALL TO ACTION */}
+            {/* 2. CALL TO ACTION (Ортодонтия) */}
             <div className="lg:col-span-7 flex flex-col justify-end">
-              <div className="bg-[#2A2A2A] rounded-3xl p-8 lg:p-12 border border-gray-800">
+              <div className="bg-[#333333] rounded-3xl p-8 lg:p-12 border border-gray-800">
                   <h3 className="text-2xl lg:text-3xl font-black text-white font-heading mb-6 uppercase flex items-center gap-4">
                       <span className="w-2 h-10 bg-[#3BC3F3] rounded-full"></span>
                       Создаем улыбки мечты
                   </h3>
+                  
                   <p className="text-gray-300 mb-8 text-base lg:text-lg leading-relaxed max-w-2xl">
                       Ортодонтия — это не просто ровные зубы, это гармония лица, правильная функция и уверенность в себе на всю жизнь. 
                       Наши специалисты используют передовые цифровые технологии для достижения идеального результата.
                   </p>
+                  
+                  {/* Кнопка Оставить заявку */}
                   <div>
                       <button className="group relative w-full sm:w-auto py-5 px-10 rounded-2xl bg-[#3BC3F3] text-white font-bold text-lg overflow-hidden shadow-[0_0_25px_rgba(59,195,243,0.3)] hover:shadow-[0_0_40px_rgba(59,195,243,0.5)] transition-all active:scale-[0.98]">
                           <span className="relative z-10 flex items-center justify-center gap-3">
@@ -96,6 +110,7 @@ export default function Footer() {
                   </div>
               </div>
             </div>
+
           </div>
 
           {/* --- СРЕДНЯЯ ЧАСТЬ: Клиники (С КАРТИНКАМИ) --- */}
@@ -105,9 +120,9 @@ export default function Footer() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {clinics.map((clinic, index) => (
-                <div key={index} className="bg-[#2A2A2A] rounded-2xl p-6 border border-gray-800 hover:border-[#3BC3F3]/50 transition-colors group h-full flex flex-col">
+                <div key={index} className="bg-[#333333] rounded-2xl p-6 border border-gray-800 hover:border-[#3BC3F3]/50 transition-colors group h-full flex flex-col">
                   
-                  {/* КАРТИНКА-КНОПКА (Вместо заглушки) */}
+                  {/* КАРТИНКА-КНОПКА */}
                   <div 
                     onClick={() => setActiveMap(clinic.mapSrc)}
                     className="w-full h-48 rounded-xl mb-5 relative overflow-hidden cursor-pointer border border-gray-700 group-hover:border-[#3BC3F3]/50 transition-all"
@@ -152,7 +167,6 @@ export default function Footer() {
             <div className="space-y-1 lg:text-right">
               <p>ООО "Улыбка в порядке"</p>
               <p>ИНН 7816704653</p>
-              <p>Лицензия № ЛО-78-01-011234 от 25.10.2019</p>
             </div>
           </div>
 
@@ -163,12 +177,16 @@ export default function Footer() {
       {activeMap && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in" onClick={() => setActiveMap(null)}>
           <div className="relative w-full max-w-5xl h-[80vh] bg-[#1F1F1F] rounded-3xl overflow-hidden shadow-2xl border border-gray-700" onClick={e => e.stopPropagation()}>
+            
+            {/* Кнопка закрытия */}
             <button 
               onClick={() => setActiveMap(null)}
               className="absolute top-4 right-4 z-50 w-10 h-10 bg-white rounded-full flex items-center justify-center text-black hover:bg-gray-200 transition-colors shadow-lg"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
+
+            {/* Iframe с картой */}
             <iframe 
               src={activeMap} 
               width="100%" 
