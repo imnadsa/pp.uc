@@ -13,7 +13,6 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Функция вычисления позиции
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -22,11 +21,9 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
     setSliderPosition(percent);
   }, []);
 
-  // Обработчики мыши и тача
   const onMouseDown = () => setIsDragging(true);
   const onTouchStart = () => setIsDragging(true);
 
-  // Глобальные обработчики (чтобы не срывалось, если мышь выйдет за пределы)
   useEffect(() => {
     const onMouseUp = () => setIsDragging(false);
     const onTouchEnd = () => setIsDragging(false);
@@ -57,11 +54,11 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
   return (
     <div 
       ref={containerRef}
-      className="relative w-full aspect-[4/3] overflow-hidden select-none cursor-ew-resize group"
+      className="relative w-full aspect-[4/3] overflow-hidden select-none cursor-ew-resize group rounded-t-[2rem]" // Скругление только сверху, как у карточки
       onMouseDown={onMouseDown}
       onTouchStart={onTouchStart}
     >
-      {/* 1. ФОТО "ПОСЛЕ" (Нижний слой, виден полностью) */}
+      {/* 1. ФОТО "ПОСЛЕ" (Нижний слой, правая часть) */}
       <Image 
         src={afterImage} 
         alt="После" 
@@ -69,55 +66,57 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
         className="object-cover pointer-events-none"
       />
       
-      {/* Плашка "После" */}
-      <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-lg text-sm font-medium text-[#287FB8] shadow-sm z-10 pointer-events-none">
-        После
-      </div>
-
-      {/* 2. ФОТО "ДО" (Верхний слой, обрезается шириной) */}
+      {/* 2. ФОТО "ДО" (Верхний слой, левая часть, обрезается) */}
       <div 
-        className="absolute top-0 left-0 h-full overflow-hidden border-r-4 border-[#3AC3F3]"
+        className="absolute top-0 left-0 h-full overflow-hidden"
         style={{ width: `${sliderPosition}%` }}
       >
         <div className="relative w-full h-full">
-           {/* Важно: Image должен быть relative контейнеру, чтобы не плющился */}
-           {/* Мы хардкодим ширину картинки равной ширине родительского контейнера, чтобы она не сжималась */}
-           <div className="absolute inset-0 w-[100vw] sm:w-[500px] md:w-[600px] lg:w-[800px] h-full"> 
-             {/* ^ Тут маленький хак: ширину нужно ставить большую, чтобы при обрезке контейнера картинка оставалась на месте. 
-                 В идеале использовать object-cover на родителя, но в clip-path режиме проще так */}
+           {/* Чтобы картинка не сжималась, растягиваем её контейнер на 100vw или широкую фиксированную ширину */}
+           <div className="absolute inset-0 w-[200vw] lg:w-[1000px] h-full pointer-events-none"> 
              <Image 
               src={beforeImage} 
               alt="До" 
               fill 
-              className="object-cover object-left pointer-events-none"
+              className="object-cover object-left"
             />
            </div>
         </div>
       </div>
-      
-      {/* Плашка "До" */}
-      <div 
-        className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-lg text-sm font-medium text-[#287FB8] shadow-sm z-10 pointer-events-none transition-opacity duration-200"
-        style={{ opacity: sliderPosition < 15 ? 0 : 1 }}
-      >
-        До
-      </div>
 
-      {/* 3. ПОЛЗУНОК (Кругляш) */}
+      {/* 3. ГОЛУБАЯ ЛИНИЯ (Разделитель) */}
       <div 
-        className="absolute top-1/2 -translate-y-1/2 w-10 h-10 bg-[#3AC3F3] rounded-full flex items-center justify-center shadow-lg z-20 pointer-events-none transform -translate-x-1/2"
+        className="absolute top-0 bottom-0 w-[2px] bg-[#3BC3F3] z-20 pointer-events-none"
+        style={{ left: `${sliderPosition}%` }}
+      ></div>
+
+      {/* 4. КРУГЛАЯ КНОПКА СО СТРЕЛКАМИ */}
+      <div 
+        className="absolute top-1/2 -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-[#3BC3F3] rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] z-30 pointer-events-none transform -translate-x-1/2"
         style={{ left: `${sliderPosition}%` }}
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-          <polyline points="9 18 3 12 9 6" className="hidden"></polyline> {/* Стрелка влево */}
-          <polyline points="19 12 12 19 5 12" className="hidden"></polyline>
+        {/* Стрелочки < > */}
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-[-2px]"/>
+          <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-[2px] hidden"/> {/* Вторая стрелка если нужна */}
+          
+          {/* Или вариант именно как на скрине (две скобки < >) */}
+          <path d="M14 16L10 12L14 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(-3, 0)"/>
+          <path d="M10 16L14 12L10 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" transform="translate(3, 0)"/>
         </svg>
-        {/* Иконка стрелочек влево-вправо */}
-        <div className="flex gap-1">
-            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1L1 5L5 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L1 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        </div>
+      </div>
+
+      {/* 5. ПЛАШКИ "До" и "После" */}
+      <div className="absolute bottom-4 left-4 z-20 pointer-events-none transition-opacity duration-300" style={{ opacity: sliderPosition < 10 ? 0 : 1 }}>
+        <span className="bg-white px-4 py-1.5 rounded-lg text-[#3BC3F3] text-sm font-bold shadow-sm">
+          До
+        </span>
+      </div>
+
+      <div className="absolute bottom-4 right-4 z-20 pointer-events-none transition-opacity duration-300" style={{ opacity: sliderPosition > 90 ? 0 : 1 }}>
+        <span className="bg-white px-4 py-1.5 rounded-lg text-[#3BC3F3] text-sm font-bold shadow-sm">
+          После
+        </span>
       </div>
 
     </div>
