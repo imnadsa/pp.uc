@@ -16,17 +16,20 @@ export default function Button({
   className = '' 
 }: ButtonProps) {
   
-  const baseStyles = "inline-flex items-center gap-2 group";
+  const baseStyles = "inline-flex items-center gap-1 group";
+
+  // Цвета
+  const colorStyles = "bg-[#287FB8] hover:bg-[#206a9c] text-white";
 
   const content = (
     <>
       {/* Основная часть кнопки с текстом */}
-      <span className="px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-gradient-to-r from-[#4338CA] via-[#6366F1] to-[#3AC3F3] text-white text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+      <span className={`px-8 lg:px-10 py-4 lg:py-5 rounded-full ${colorStyles} text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300`}>
         {children}
       </span>
       
       {/* Круг со стрелкой - отдельный элемент */}
-      <span className="w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-[#4338CA] to-[#6366F1] text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+      <span className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center ${colorStyles} shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
         <svg 
           width="20" 
           height="20" 
