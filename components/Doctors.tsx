@@ -79,7 +79,7 @@ export default function Doctors() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden">
+    <section className="py-16 lg:py-24 bg-[#eef7fd] overflow-hidden">
       <div className="container-custom">
         
         {/* Заголовок и навигация */}
