@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import BeforeAfter from './ui/BeforeAfter'; // Импорт компонента из шага 1
-import Button from './ui/Button';
+import BeforeAfter from './ui/BeforeAfter';
 
-// Данные (заглушки)
+// Данные
 const cases = [
   {
     id: 1,
@@ -12,7 +11,7 @@ const cases = [
     description: "Исправление скученности зубов и глубокого прикуса.",
     duration: "28 месяцев",
     age: "46 лет",
-    before: "/case1-before.jpg", // Закинь эти картинки в public
+    before: "/case1-before.jpg", 
     after: "/case1-after.jpg",
   },
   {
@@ -45,13 +44,13 @@ export default function Results() {
           <h2 className="text-3xl lg:text-5xl font-black text-gray-900 font-heading">
             Результаты лечения
           </h2>
-          {/* Кнопки навигации (декоративные, если не делать слайдер всей секции) */}
+          {/* Стрелки навигации */}
           <div className="hidden lg:flex gap-4">
              <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[#3AC3F3] hover:text-[#3AC3F3] transition-colors">
-               ←
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
              </button>
              <button className="w-12 h-12 rounded-full bg-[#3AC3F3] flex items-center justify-center text-white shadow-lg hover:bg-[#287FB8] transition-colors">
-               →
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
              </button>
           </div>
         </div>
@@ -59,43 +58,40 @@ export default function Results() {
         {/* Сетка карточек */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cases.map((item) => (
-            <div key={item.id} className="bg-gray-50 rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col">
+            <div key={item.id} className="bg-gray-50 rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
               
               {/* Блок Слайдера */}
               <div className="relative">
-                 {/* Используем наш компонент */}
                  <BeforeAfter beforeImage={item.before} afterImage={item.after} />
               </div>
 
-              {/* Текстовая часть */}
+              {/* Текстовая часть (Кнопка убрана) */}
               <div className="p-6 lg:p-8 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight min-h-[3.5rem]">
                   {item.title}
                 </h3>
 
-                <div className="space-y-4 mb-6 flex-grow">
+                <div className="space-y-5 flex-grow">
                   <div>
-                    <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Описание</div>
+                    <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Описание</div>
                     <p className="text-sm text-gray-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 pt-2">
                     <div>
                       <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Срок лечения</div>
-                      <div className="text-gray-900 font-medium">{item.duration}</div>
+                      <div className="text-gray-900 font-medium text-lg">{item.duration}</div>
                     </div>
                     <div>
                       <div className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Возраст</div>
-                      <div className="text-gray-900 font-medium">{item.age}</div>
+                      <div className="text-gray-900 font-medium text-lg">{item.age}</div>
                     </div>
                   </div>
                 </div>
-
-                <Button className="w-full justify-center text-sm py-3" variant="secondary">
-                   Подробнее о кейсе
-                </Button>
+                
+                {/* Кнопка удалена */}
               </div>
             </div>
           ))}
