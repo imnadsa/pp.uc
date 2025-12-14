@@ -1,7 +1,8 @@
 import Button from './ui/Button';
-import Image from 'next/image'; // <-- ВОЗВРАЩАЕМ ИМПОРТ
+import Image from 'next/image';
 
-export default function Hero() {
+export
+default function Hero() {
   return (
     <section className="bg-[#eef7fd] py-16 lg:py-20 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
@@ -9,9 +10,20 @@ export default function Hero() {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
-          {/* Левая часть */}
-          <div className="order-2 lg:order-1">
+        {/* 
+            ИЗМЕНЕНИЯ ЗДЕСЬ:
+            grid -> flex flex-col lg:grid
+            Это говорит: на мобильном блоки идут в столбик, на десктопе - в сетку
+        */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
+
+          {/* 
+             Левая часть (Текст)
+             order-2 lg:order-1 -> На мобильном будет второй, на десктопе - первый.
+             ИЗМЕНЕНИЕ: меняем на order-1 lg:order-1
+             Теперь этот блок ВСЕГДА первый
+          */}
+          <div className="order-1 lg:order-1">
             <h1 className="text-[40px] md:text-[48px] lg:text-[52px] xl:text-[58px] font-black leading-[1.15] mb-8 text-gray-900 font-heading tracking-[0.02em]">
               Выравниваем{' '}
               <span className="inline-block px-2 pb-1 border-2 border-dashed border-[#287FB8]/40 text-[#287FB8] rounded-lg transform -rotate-1 mx-1">
@@ -37,8 +49,13 @@ export default function Hero() {
             </Button>
           </div>
 
-          {/* Правая часть */}
-          <div className="order-1 lg:order-2">
+          {/* 
+             Правая часть (Карточка врача)
+             order-1 lg:order-2 -> На мобильном будет первая, на десктопе - вторая.
+             ИЗМЕНЕНИЕ: меняем на order-2 lg:order-2
+             Теперь этот блок на мобильном будет ВТОРЫМ
+          */}
+          <div className="order-2 lg:order-2">
             <DoctorCard />
           </div>
         </div>
@@ -47,46 +64,41 @@ export default function Hero() {
   );
 }
 
-// --- КАРТОЧКА ВРАЧА С ФОТОГРАФИЕЙ ---
+// ... остальной код (DoctorCard, InfoBadge) остается без изменений ...
+
+// --- КАРТОЧКА ВРАЧА С ФОТО И ПРОЗРАЧНЫМ ТЕКСТОМ ---
 function DoctorCard() {
   return (
-    // Белая карточка с тенью
-    <div className="relative bg-white rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-md mx-auto lg:ml-auto lg:mr-0 overflow-hidden">
+    // Главный контейнер
+    <div className="relative rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-lg mx-auto lg:ml-auto lg:mr-0 overflow-hidden">
       
-      {/* 1. Блок с текстом (сверху) */}
-      <div className="p-8 lg:p-10 relative z-10">
-        
-        {/* Имя */}
-        <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 font-heading leading-tight mb-8">
-          Тихонов Андрей<br />Викторович
-        </h3>
-        
-        {/* Бейджи */}
-        <div className="flex flex-wrap gap-3">
-          <InfoBadge text="24 года стаж" />
-          <InfoBadge text="Кандидат Медицинских Наук" />
-          <InfoBadge text="Топ-5 ортодонтов в России" highlight />
-        </div>
-      </div>
-
-      {/* 2. Блок с фотографией (снизу) */}
-      <div className="relative h-80 lg:h-96">
-        {/* 
-           Чтобы фото было видно, но не мешало, можно сделать его полупрозрачным 
-           или добавить градиент поверх, чтобы текст всегда читался.
-           Я добавлю градиент, который переходит от белого фона карточки к фото.
-        */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-200 to-gray-50"></div>
-
+      {/* 1. ФОТОГРАФИЯ (на весь фон) */}
+      <div className="relative w-full h-[500px] lg:h-[550px]">
         <Image
-          src="/atikhonov.jpg"
+          src="/atikhonov.png"
           alt="Фото - Тихонов Андрей Викторович"
           fill
-          className="object-cover object-top" // object-top фокусируется на верхней части фото
+          className="object-cover object-center"
           sizes="(max-width: 1024px) 50vw, 33vw"
+          priority
         />
-        {/* Градиент от белого фона карточки к фото, чтобы был плавный переход */}
-        <div className="absolute -top-10 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+      </div>
+
+      {/* 2. БЛОК С ТЕКСТОМ (накладывается поверх фото) */}
+      <div className="absolute inset-0 p-8 flex flex-col justify-between">
+        
+        {/* Имя и Бейджи (снизу) */}
+        <div className="text-white">
+          <h3 className="text-3xl lg:text-4xl font-bold font-heading leading-tight mb-6 drop-shadow-md">
+            Тихонов Андрей<br />Викторович
+          </h3>
+          <div className="flex flex-col items-start gap-3">
+            <InfoBadge text="24 года стаж" />
+            <InfoBadge text="Кандидат Медицинских Наук" />
+            <InfoBadge text="Топ-5 ортодонтов в России" highlight />
+          </div>
+        </div>
       </div>
 
     </div>
@@ -101,10 +113,10 @@ interface InfoBadgeProps {
 
 function InfoBadge({ text, highlight }: InfoBadgeProps) {
   return (
-    <div className={`inline-flex items-center px-4 py-2 rounded-full border-2 transition-all ${
+    <div className={`inline-flex items-center px-5 py-2.5 rounded-full backdrop-blur-sm transition-all ${
       highlight 
-        ? 'border-[#3AC3F3] bg-[#3AC3F3] text-white font-bold' 
-        : 'border-[#3AC3F3] bg-transparent text-gray-700'
+        ? 'bg-[#3AC3F3]/90 text-white font-bold border-2 border-transparent' 
+        : 'bg-white/20 text-white border-2 border-white/30'
     }`}>
       <span className="text-sm font-medium leading-tight">
         {text}
