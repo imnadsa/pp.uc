@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
 
-          {/* Левая часть (Текст) */}
+          {/* Левая часть (Текст) - на мобильном будет первой */}
           <div className="order-1 lg:order-1">
             <h1 className="text-[40px] md:text-[48px] lg:text-[52px] xl:text-[58px] font-black leading-[1.15] mb-8 text-gray-900 font-heading tracking-[0.02em]">
               Выравниваем{' '}
@@ -38,7 +38,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          {/* Правая часть (Карточка врача) */}
+          {/* Правая часть (Карточка врача) - на мобильном будет второй */}
           <div className="order-2 lg:order-2">
             <DoctorCard />
           </div>
@@ -48,22 +48,27 @@ export default function Hero() {
   );
 }
 
-// --- КАРТОЧКА ВРАЧА (ФИНАЛЬНАЯ ВЕРСИЯ) ---
+// --- КАРТОЧКА ВРАЧА (С АДАПТИВНОЙ ВЫСОТОЙ) ---
 function DoctorCard() {
   return (
     <div className="relative rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-lg mx-auto lg:ml-auto lg:mr-0 overflow-hidden">
       
-      {/* 1. ФОТОГРАФИЯ (на весь фон) */}
-      <div className="relative w-full h-[500px] lg:h-[550px]">
+      {/* 1. ФОТОГРАФИЯ */}
+      {/* 
+         ИЗМЕНЕНИЕ ЗДЕСЬ: 
+         h-[450px] -> для мобильных
+         sm:h-[500px] -> для экранов побольше
+         lg:h-[550px] -> для десктопов
+      */}
+      <div className="relative w-full h-[450px] sm:h-[500px] lg:h-[550px]">
         <Image
-          src="/atikhonov.jpg"
+          src="/atikhonov.png"
           alt="Фото - Тихонов Андрей Викторович"
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 50vw, 33vw"
           priority
         />
-        {/* Затемняющий градиент снизу, чтобы текст лучше читался */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
       </div>
 
@@ -89,7 +94,7 @@ function DoctorCard() {
   );
 }
 
-// --- Бейдж (Стиль "Стекло") ---
+// --- Бейдж ---
 interface InfoBadgeProps {
   text: string;
   highlight?: boolean;
