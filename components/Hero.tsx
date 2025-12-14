@@ -1,4 +1,5 @@
 import Button from './ui/Button';
+import Image from 'next/image'; // <-- Step 1: Add Image import
 
 export default function Hero() {
   return (
@@ -33,9 +34,13 @@ export default function Hero() {
               </span>
             </p>
 
+            <p className="text-base md:text-lg text-gray-600 mb-10 leading-relaxed max-w-md">
+              Запишитесь на бесплатную консультацию и получите план лечения уже на первом приеме.
+            </p>
+
             {/* CTA Button - ONLY ONE */}
             <Button href="#appointment">
-              Записаться на консультацию
+              Бесплатная консультация
             </Button>
           </div>
 
@@ -80,13 +85,20 @@ function DoctorCard() {
             </div>
           </div>
 
-          {/* Right Side - Photo */}
-          <div className="min-h-[450px] lg:min-h-[500px] overflow-hidden">
-            <img
-              src="/atikhonov.png"
-              alt="Тихонов Андрей Викторович"
-              className="w-full h-full object-cover"
+          {/* 
+             Right Side - Photo 
+             STEP 2: Replace the placeholder div with the Image component
+          */}
+          <div className="relative min-h-[450px] lg:min-h-[500px]">
+            <Image
+              src="/atikhonov.png" // Path to your image in the /public folder
+              alt="Фото - Тихонов Андрей Викторович"
+              fill
+              className="object-cover" // Ensures the image covers the area without distortion
+              sizes="(max-width: 1024px) 50vw, 33vw"
             />
+            {/* Optional: Add a subtle gradient over the image if needed */}
+            <div className="absolute inset-0 bg-gradient-to-l from-black/5 to-transparent"></div>
           </div>
         </div>
       </div>
