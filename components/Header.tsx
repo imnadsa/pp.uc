@@ -41,12 +41,14 @@ export default function Header() {
               <LogoIcon />
             </div>
             
-            {/* Текст логотипа (Только десктоп) - Центрируем его относительно высоты хедера с помощью отступа сверху */}
-            <div className="hidden lg:flex flex-col mt-8">
-              <span className="text-xl font-black text-gray-900 uppercase tracking-wide leading-none">
-                ПОЛНЫЙ ПОРЯДОК <sup className="text-xs text-gray-500">®</sup>
+            {/* Текст логотипа - Теперь виден и на мобильных */}
+            <div className="flex flex-col mt-5 lg:mt-8">
+              <span className="text-sm lg:text-xl font-black text-gray-900 uppercase tracking-wide leading-none">
+                ПОЛНЫЙ ПОРЯДОК <sup className="text-[8px] lg:text-xs text-gray-500">®</sup>
               </span>
-              <span className="text-sm text-gray-500 font-medium mt-1">Ортодонтия и стоматология</span>
+              <span className="text-[10px] lg:text-sm text-gray-500 font-medium mt-0.5 lg:mt-1">
+                Ортодонтия и стоматология
+              </span>
             </div>
           </Link>
 
