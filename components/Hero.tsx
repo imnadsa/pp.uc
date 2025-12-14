@@ -55,13 +55,6 @@ function DoctorCard() {
       
       {/* 1. Блок с текстом (сверху) */}
       <div className="p-8 lg:p-10 relative z-10">
-        {/* Рейтинг */}
-        <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md">
-          <div className="text-center">
-            <div className="text-2xl font-black text-gray-900">4.9</div>
-            <div className="text-yellow-400 text-sm">★★★★★</div>
-          </div>
-        </div>
         
         {/* Имя */}
         <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 font-heading leading-tight mb-8">
