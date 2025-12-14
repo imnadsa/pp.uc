@@ -62,7 +62,7 @@ function DoctorCard() {
       */}
       <div className="relative w-full h-[450px] sm:h-[500px] lg:h-[550px]">
         <Image
-          src="/atikhonov.png"
+          src="/atikhonov.jpg"
           alt="Фото - Тихонов Андрей Викторович"
           fill
           className="object-cover object-center"
