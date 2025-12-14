@@ -1,8 +1,7 @@
 import Button from './ui/Button';
 import Image from 'next/image';
 
-export
-default function Hero() {
+export default function Hero() {
   return (
     <section className="bg-[#eef7fd] py-16 lg:py-20 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
@@ -10,19 +9,9 @@ default function Hero() {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* 
-            ИЗМЕНЕНИЯ ЗДЕСЬ:
-            grid -> flex flex-col lg:grid
-            Это говорит: на мобильном блоки идут в столбик, на десктопе - в сетку
-        */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
 
-          {/* 
-             Левая часть (Текст)
-             order-2 lg:order-1 -> На мобильном будет второй, на десктопе - первый.
-             ИЗМЕНЕНИЕ: меняем на order-1 lg:order-1
-             Теперь этот блок ВСЕГДА первый
-          */}
+          {/* Левая часть (Текст) */}
           <div className="order-1 lg:order-1">
             <h1 className="text-[40px] md:text-[48px] lg:text-[52px] xl:text-[58px] font-black leading-[1.15] mb-8 text-gray-900 font-heading tracking-[0.02em]">
               Выравниваем{' '}
@@ -49,12 +38,7 @@ default function Hero() {
             </Button>
           </div>
 
-          {/* 
-             Правая часть (Карточка врача)
-             order-1 lg:order-2 -> На мобильном будет первая, на десктопе - вторая.
-             ИЗМЕНЕНИЕ: меняем на order-2 lg:order-2
-             Теперь этот блок на мобильном будет ВТОРЫМ
-          */}
+          {/* Правая часть (Карточка врача) */}
           <div className="order-2 lg:order-2">
             <DoctorCard />
           </div>
@@ -64,40 +48,40 @@ default function Hero() {
   );
 }
 
-// ... остальной код (DoctorCard, InfoBadge) остается без изменений ...
-
-// --- КАРТОЧКА ВРАЧА С ФОТО И ПРОЗРАЧНЫМ ТЕКСТОМ ---
+// --- КАРТОЧКА ВРАЧА (ФИНАЛЬНАЯ ВЕРСИЯ) ---
 function DoctorCard() {
   return (
-    // Главный контейнер
     <div className="relative rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-lg mx-auto lg:ml-auto lg:mr-0 overflow-hidden">
       
       {/* 1. ФОТОГРАФИЯ (на весь фон) */}
       <div className="relative w-full h-[500px] lg:h-[550px]">
         <Image
-          src="/atikhonov.jpg"
+          src="/atikhonov.png"
           alt="Фото - Тихонов Андрей Викторович"
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 50vw, 33vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+        {/* Затемняющий градиент снизу, чтобы текст лучше читался */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
       </div>
 
-      {/* 2. БЛОК С ТЕКСТОМ (накладывается поверх фото) */}
-      <div className="absolute inset-0 p-8 flex flex-col justify-between">
+      {/* 2. БЛОК С ТЕКСТОМ (прижат к низу) */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
         
-        {/* Имя и Бейджи (снизу) */}
         <div className="text-white">
-          <h3 className="text-3xl lg:text-4xl font-bold font-heading leading-tight mb-6 drop-shadow-md">
-            Тихонов Андрей<br />Викторович
-          </h3>
-          <div className="flex flex-col items-start gap-3">
+          {/* Бейджи (над именем) */}
+          <div className="flex flex-col items-start gap-3 mb-4">
             <InfoBadge text="24 года стаж" />
             <InfoBadge text="Кандидат Медицинских Наук" />
             <InfoBadge text="Топ-5 ортодонтов в России" highlight />
           </div>
+
+          {/* Имя */}
+          <h3 className="text-3xl lg:text-4xl font-bold font-heading leading-tight drop-shadow-md">
+            Тихонов Андрей<br />Викторович
+          </h3>
         </div>
       </div>
 
@@ -105,7 +89,7 @@ function DoctorCard() {
   );
 }
 
-// --- Бейдж ---
+// --- Бейдж (Стиль "Стекло") ---
 interface InfoBadgeProps {
   text: string;
   highlight?: boolean;
@@ -113,12 +97,12 @@ interface InfoBadgeProps {
 
 function InfoBadge({ text, highlight }: InfoBadgeProps) {
   return (
-    <div className={`inline-flex items-center px-5 py-2.5 rounded-full backdrop-blur-sm transition-all ${
+    <div className={`inline-flex items-center px-5 py-2.5 rounded-full backdrop-blur-md transition-all ${
       highlight 
-        ? 'bg-[#3AC3F3]/90 text-white font-bold border-2 border-transparent' 
-        : 'bg-white/20 text-white border-2 border-white/30'
+        ? 'bg-[#3AC3F3]/80 text-white font-bold' 
+        : 'bg-white/10 text-white border border-white/20'
     }`}>
-      <span className="text-sm font-medium leading-tight">
+      <span className="text-sm font-medium leading-tight tracking-wide">
         {text}
       </span>
     </div>
