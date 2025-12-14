@@ -91,7 +91,7 @@ function DoctorCard() {
           */}
           <div className="relative min-h-[450px] lg:min-h-[500px]">
             <Image
-              src="/atikhonov.png" // Path to your image in the /public folder
+              src="/atikhonov.jpg" // Path to your image in the /public folder
               alt="Фото - Тихонов Андрей Викторович"
               fill
               className="object-cover" // Ensures the image covers the area without distortion
