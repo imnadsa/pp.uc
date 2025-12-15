@@ -89,7 +89,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
 
       {/* 4. КРУГЛАЯ КНОПКА */}
       <div 
-        className="absolute top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-[#3BC3F3] rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] z-30 pointer-events-none transform -translate-x-1/2"
+        className="absolute top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 bg-[#3BC3F3] rounded-full flex items-center justify-center shadow-[0_10px_12px_rgba(0,0,0,0.2)] z-30 pointer-events-none transform -translate-x-1/2"
         style={{ left: `${sliderPosition}%` }}
       >
         {/* Стрелочки */}
