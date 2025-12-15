@@ -76,9 +76,9 @@ export default function Appointment() {
                    </div>
                    <div>
                      <p className="text-[#155e85] font-bold text-lg lg:text-xl leading-tight">
-                       Бесплатная <span className="text-[#2274a4]">первичная консультация</span> + КЛКТ
+                       Бесплатная <span className="text-[#2274a4]">диагностика и составление плана лечение </span> *
                      </p>
-                     <p className="text-sm text-[#4a8bb3] mt-1 font-medium">Полная диагностика в подарок</p>
+                     <p className="text-sm text-[#4a8bb3] mt-1 font-medium">Полная диагностика при внесении предоплаты</p>
                    </div>
                 </div>
 
