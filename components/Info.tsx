@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; // <-- 1. ДОБАВЬ ЭТОТ ИМПОРТ
 
 export default function Info() {
   return (
@@ -11,37 +12,33 @@ export default function Info() {
             У нас нет практикантов и стажёров
           </div>
           <h2 className="text-2xl lg:text-5xl font-black text-gray-900 font-heading leading-tight max-w-4xl">
-            Врачи со средним опытом >10 лет, а результаты говорят сами за себя:
+            Врачи со средним опытом &gt;10 лет, а результаты говорят сами за себя:
           </h2>
         </div>
 
-        {/* 
-            ОСНОВНАЯ СЕТКА 
-            На мобильном: grid-cols-2 (2 колонки)
-            На десктопе: grid-cols-12 (сохраняем сложную верстку)
-        */}
+        {/* ОСНОВНАЯ СЕТКА */}
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-3 lg:gap-6">
           
           {/* 
-             ГРУППА 1: Большое фото команды 
-             Мобильный: Порядок 6 (в самом низу), ширина 2 колонки (col-span-2)
+             ГРУППА 1: Большое фото команды (team1.png)
           */}
           <div className="contents lg:block lg:col-span-5">
             <div className="col-span-2 order-6 lg:order-none relative rounded-3xl overflow-hidden group h-[200px] lg:h-full mt-2 lg:mt-0">
-              <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-medium text-sm lg:text-lg text-center p-6">
-                [Фото команды]
-              </div>
+              {/* 2. ЗАМЕНИЛИ ЗАГЛУШКУ НА IMAGE */}
+              <Image
+                src="/team1.png"
+                alt="Команда врачей"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#287FB8]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
           </div>
 
-          {/* 
-             ГРУППА 2: Центральные карточки 
-             Мобильный: display: contents позволяет элементам участвовать в общей сетке
-          */}
+          {/* ГРУППА 2: Центральные карточки */}
           <div className="contents lg:flex lg:flex-col lg:col-span-4 lg:gap-4">
             
-            {/* Карточка 1: Более 6000 -> Порядок 1 (Слева сверху) */}
             <div className="order-1 lg:order-none col-span-1 lg:w-full">
               <InfoCard 
                 value="6 000" 
@@ -51,7 +48,6 @@ export default function Info() {
               />
             </div>
 
-            {/* Карточка 2: 98% -> Порядок 3 (Слева второй ряд) */}
             <div className="order-3 lg:order-none col-span-1 lg:w-full">
               <InfoCard 
                 value="98%" 
@@ -60,7 +56,6 @@ export default function Info() {
               />
             </div>
 
-            {/* Карточка 3: Сроки -> Порядок 4 (Справа второй ряд) */}
             <div className="order-4 lg:order-none col-span-1 lg:w-full">
               <InfoCard 
                 value="14-26" 
@@ -72,19 +67,22 @@ export default function Info() {
             </div>
           </div>
 
-          {/* 
-             ГРУППА 3: Правая колонка 
-          */}
+          {/* ГРУППА 3: Правая колонка */}
           <div className="contents lg:flex lg:flex-col lg:col-span-3 lg:gap-4">
             
-            {/* Портрет главврача -> Порядок 2 (Справа сверху, рядом с карточкой 1) */}
+            {/* Портрет главврача (team2.png) */}
             <div className="order-2 lg:order-none col-span-1 lg:w-full relative rounded-3xl overflow-hidden min-h-[140px] lg:flex-grow">
-              <div className="absolute inset-0 bg-gray-200 flex items-center justify-center text-gray-400 font-medium text-xs lg:text-lg text-center p-2">
-                [Врачи]
-              </div>
+              {/* 3. ЗАМЕНИЛИ ЗАГЛУШКУ НА IMAGE */}
+              <Image
+                src="/team2.png"
+                alt="Врачи клиники"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+              />
             </div>
 
-            {/* Карточка 4: 100% -> Порядок 5 (На всю ширину перед фото команды) */}
+            {/* Карточка 4: 100% */}
             <div className="order-5 lg:order-none col-span-2 lg:w-full">
               <InfoCard 
                 value="100%" 
@@ -100,11 +98,13 @@ export default function Info() {
   );
 }
 
+// ... остальной код InfoCard остается без изменений ...
+
 // Компонент карточки
 interface InfoCardProps {
   value: string;
-  label: string;      // Короткий текст для мобилки
-  fullLabel: string;  // Полный текст для десктопа
+  label: string;
+  fullLabel: string;
   prefix?: string;
   suffix?: string;
 }
@@ -112,16 +112,12 @@ interface InfoCardProps {
 function InfoCard({ value, label, fullLabel, prefix, suffix }: InfoCardProps) {
   return (
     <div className="bg-white p-4 lg:p-7 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 relative flex flex-col justify-center h-full min-h-[120px] lg:min-h-[140px]">
-      {/* Акцентная точка */}
       <div className="absolute top-3 right-3 lg:top-4 lg:right-4 w-2 h-2 lg:w-3 lg:h-3 bg-[#287FB8] rounded-full"></div>
-      
       <div className="text-[#287FB8] font-black font-heading leading-none mb-1 lg:mb-2 whitespace-nowrap">
         {prefix && <span className="text-sm lg:text-xl text-gray-500 font-medium mr-1 lg:mr-2 align-middle">{prefix}</span>}
         <span className="text-3xl lg:text-5xl">{value}</span>
         {suffix && <span className="text-sm lg:text-2xl ml-1 align-baseline">{suffix}</span>}
       </div>
-      
-      {/* Текст: на мобильном показываем label, на десктопе fullLabel */}
       <p className="text-gray-600 font-medium text-xs lg:text-lg leading-tight lg:hidden">
         {label}
       </p>
