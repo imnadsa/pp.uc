@@ -27,11 +27,11 @@ export default function Hero() {
             <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
               Под руководством{' '}
               <span className="font-bold text-[#287FB8]">
-                лучшего ортодонта Санкт-Петербурга — Андрея Тихонова
+                лучших ортодонта Санкт-Петербурга, ТОП-5 ортодонтов России - Братьев Тихоновых
               </span>
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed max-w-md">
-              Запишитесь на бесплатную консультацию и получите план лечения уже на первом приеме.
+              Запишитесь на бесплатную диагностику и составление плана лечения уже сегодня
             </p>
             <Button href="#appointment">
               Записаться на консультацию
@@ -79,14 +79,14 @@ function DoctorCard() {
         <div className="text-white">
           {/* Бейджи (над именем) */}
           <div className="flex flex-col items-start gap-2 mb-3">
-            <InfoBadge text="24 года стаж" />
+            <InfoBadge text="46 лет общий стаж" />
             <InfoBadge text="Кандидат Медицинских Наук" />
             <InfoBadge text="Топ-5 ортодонтов в России" highlight />
           </div>
 
           {/* Имя (уменьшено на мобильных) */}
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight drop-shadow-md">
-            Тихонов Андрей<br />Викторович
+            Братья Тихоновы
           </h3>
         </div>
       </div>
