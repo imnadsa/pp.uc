@@ -11,8 +11,8 @@ const cases = [
     description: "Исправление скученности зубов и глубокого прикуса.",
     duration: "28 месяцев",
     age: "46 лет",
-    before: "/case1-before.jpg", 
-    after: "/case1-after.jpg",
+    before: "/case1-before.png", 
+    after: "/case1-after.png",
   },
   {
     id: 2,
@@ -20,8 +20,8 @@ const cases = [
     description: "В приведенном клиническом случае ортодонты использовали брекеты Damon Q/Q.",
     duration: "2 года",
     age: "17 лет",
-    before: "/case2-before.jpg",
-    after: "/case2-after.jpg",
+    before: "/case2-before.png",
+    after: "/case2-after.png",
   },
   {
     id: 3,
@@ -29,8 +29,8 @@ const cases = [
     description: "В приведенном клиническом случае ортодонты использовали металлические самолигирующие брекеты Damon Q/Q.",
     duration: "18 месяцев",
     age: "27 лет",
-    before: "/case3-before.jpg",
-    after: "/case3-after.jpg",
+    before: "/case3-before.png",
+    after: "/case3-after.png",
   },
 ];
 
