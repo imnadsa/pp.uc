@@ -3,7 +3,7 @@
 import React from 'react';
 import BeforeAfter from './ui/BeforeAfter';
 
-// Данные
+// Данные (обновлены под твой скриншот)
 const cases = [
   {
     id: 1,
@@ -36,6 +36,7 @@ const cases = [
 
 export default function Results() {
   return (
+    // Фон секции изменен на светло-голубой
     <section className="py-16 lg:py-24 bg-[#eef7fd]" id="results">
       <div className="container-custom">
         
@@ -46,7 +47,7 @@ export default function Results() {
           </h2>
           {/* Стрелки навигации */}
           <div className="hidden lg:flex gap-4">
-             <button className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-[#3AC3F3] hover:text-[#3AC3F3] transition-colors">
+             <button className="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-400 hover:border-[#3AC3F3] hover:text-[#3AC3F3] transition-colors">
                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
              </button>
              <button className="w-12 h-12 rounded-full bg-[#3AC3F3] flex items-center justify-center text-white shadow-lg hover:bg-[#287FB8] transition-colors">
@@ -58,14 +59,15 @@ export default function Results() {
         {/* Сетка карточек */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cases.map((item) => (
-            <div key={item.id} className="bg-gray-50 rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
+            // Фон карточки изменен на белый
+            <div key={item.id} className="bg-white rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col h-full">
               
               {/* Блок Слайдера */}
               <div className="relative">
                  <BeforeAfter beforeImage={item.before} afterImage={item.after} />
               </div>
 
-              {/* Текстовая часть (Кнопка убрана) */}
+              {/* Текстовая часть */}
               <div className="p-6 lg:p-8 flex flex-col flex-grow">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight min-h-[3.5rem]">
                   {item.title}
@@ -90,8 +92,6 @@ export default function Results() {
                     </div>
                   </div>
                 </div>
-                
-                {/* Кнопка удалена */}
               </div>
             </div>
           ))}
