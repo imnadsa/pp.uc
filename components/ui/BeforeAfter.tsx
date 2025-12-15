@@ -1,6 +1,6 @@
 'use client';
 
-import React, inport Image from 'next/image';
+import React, import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface BeforeAfterProps {
