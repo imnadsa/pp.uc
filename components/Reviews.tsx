@@ -4,10 +4,10 @@ import React, { useRef } from 'react';
 
 // ID видео с Rutube
 const videos = [
-  { id: "95a61ac72850acbbc68d7d0f0995fdc5" },
-  { id: "95a61ac72850acbbc68d7d0f0995fdc5" },
-  { id: "95a61ac72850acbbc68d7d0f0995fdc5" },
-  { id: "95a61ac72850acbbc68d7d0f0995fdc5" },
+  { id: "dbe7ec48496a96a6cf920800a540d548" },
+  { id: "056d6334b5f97bb7d1765d1292ddec97" },
+  { id: "9f610236e4073a12dff425e7a24533d7" },
+  { id: "1b321aede9301f30c347f39d585483e6" },
 ];
 
 export default function Reviews() {
