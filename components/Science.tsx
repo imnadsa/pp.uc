@@ -15,7 +15,7 @@ export default function Science() {
             {/* Контейнер видео (настроен под Shorts 9:16) */}
             <div className="relative rounded-3xl overflow-hidden bg-black aspect-[9/16] shadow-lg border border-gray-100 max-w-[320px] mx-auto lg:max-w-none w-full">
               <iframe 
-                src="https://rutube.ru/play/embed/95a61ac72850acbbc68d7d0f0995fdc5" 
+                src="https://rutube.ru/play/embed/f7be876d134a27996a3e17b9d5794236/?r=wd" 
                 // Стандартный атрибут для фуллскрина (без устаревшиих webkit/moz)
                 allowFullScreen
                 frameBorder="0" 
