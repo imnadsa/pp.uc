@@ -6,7 +6,6 @@ import Appointment from '@/components/Appointment';
 import Science from '@/components/Science';
 import Results from '@/components/Results';
 import Reviews from '@/components/Reviews';
-import Savings from '@/components/Savings';
 import Doctors from '@/components/Doctors';
 import Footer from '@/components/Footer';
 
@@ -19,7 +18,6 @@ export default function Home() {
       <Benefits />
       <Appointment />
       <Science />
-      <Savings />
       <Doctors />
       <Results />
       <Reviews />
