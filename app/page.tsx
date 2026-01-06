@@ -9,7 +9,7 @@ import Bonuses from '@/components/Bonuses';
 import Results from '@/components/Results';
 import Reviews from '@/components/Reviews';
 import Doctors from '@/components/Doctors';
-import finalcta from '@/components/finalcta';
+import Finalcta from '@/components/Finalcta';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -18,18 +18,18 @@ export default function Home() {
       <Header />
       <Hero />
       <Info />
-      <finalcta />
+      <Finalcta />
       <Benefits />
       <Appointment />
       <Safety />
       <Science />
-      <finalcta />
+      <Finalcta />
       <Bonuses />
       <Doctors />
       <Results />
       <Reviews />
       <Footer />
-      <finalcta />
+      <Finalcta />
     </main>
   );
 }
