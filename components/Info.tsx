@@ -64,7 +64,7 @@ export default function Info() {
             {/* 🆕 НОВЫЙ БЛОК: МАТЕРИАЛЫ */}
             <div className="order-7 lg:order-none col-span-1 lg:w-full">
               <InfoCard 
-                value="TOP" 
+                value="TOП" 
                 label="материалы" 
                 fullLabel="материалы и оборудование мировых брендов"
               />
