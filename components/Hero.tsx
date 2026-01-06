@@ -89,7 +89,7 @@ export default function Hero() {
           {/* 🔘 CTA */}
           <div className="flex flex-col items-center">
             <Button
-              href="#appointment"
+              openAppointment
               className="
                 w-full
                 sm:w-auto
@@ -102,12 +102,11 @@ export default function Hero() {
             >
               Получить бесплатную диагностику
             </Button>
-
+          
             <p className="text-[13px] sm:text-[14px] text-gray-500 mt-3">
               Бесплатно · без обязательств · точный план лечения
             </p>
           </div>
-
         </div>
       </div>
     </section>
