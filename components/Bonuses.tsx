@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './ui/Button';
 
 export default function Bonuses() {
   return (
@@ -16,7 +17,7 @@ export default function Bonuses() {
         </div>
 
         {/* КАРТОЧКИ БОНУСОВ */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 max-w-6xl mx-auto mb-14 lg:mb-20">
 
           <BonusCard
             icon="🎁"
@@ -37,6 +38,20 @@ export default function Bonuses() {
           />
 
         </div>
+
+        {/* CTA */}
+        <div className="flex flex-col items-center text-center">
+          <Button
+            href="#appointment"
+            className="px-10 py-4 text-lg sm:text-xl"
+          >
+            Получить бесплатную диагностику
+          </Button>
+          <p className="text-sm sm:text-base text-gray-500 mt-4">
+            Бесплатно · без обязательств · точный план лечения
+          </p>
+        </div>
+
       </div>
     </section>
   );
@@ -73,3 +88,4 @@ function BonusCard({ icon, title, text }: BonusCardProps) {
     </div>
   );
 }
+
