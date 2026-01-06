@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Info from "@/components/Info";
 import Benefits from "@/components/Benefits";
 import Appointment from '@/components/Appointment';
+import Safety from '@/components/Safety';
 import Science from '@/components/Science';
 import Results from '@/components/Results';
 import Reviews from '@/components/Reviews';
@@ -17,6 +18,7 @@ export default function Home() {
       <Info />
       <Benefits />
       <Appointment />
+      <Safety />
       <Science />
       <Doctors />
       <Results />
