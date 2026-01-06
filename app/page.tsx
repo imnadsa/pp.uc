@@ -5,6 +5,7 @@ import Benefits from "@/components/Benefits";
 import Appointment from '@/components/Appointment';
 import Safety from '@/components/Safety';
 import Science from '@/components/Science';
+import Bonuses from '@/components/Bonuses';
 import Results from '@/components/Results';
 import Reviews from '@/components/Reviews';
 import Doctors from '@/components/Doctors';
@@ -20,6 +21,7 @@ export default function Home() {
       <Appointment />
       <Safety />
       <Science />
+      <Bonuses />
       <Doctors />
       <Results />
       <Reviews />
