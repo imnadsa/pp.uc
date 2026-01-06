@@ -50,12 +50,14 @@ export default function FinalCTA() {
           </div>
 
           {/* CTA */}
+          {/* CTA */}
           <Button
-            href="#appointment"
+            openAppointment
             className="px-10 py-4 text-lg sm:text-xl"
           >
             Зафиксировать цену <br />93 500 ₽
           </Button>
+
 
           <p className="text-sm text-gray-400 mt-4">
             Бесплатно · без обязательств · вы просто фиксируете условия
