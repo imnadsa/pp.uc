@@ -28,8 +28,8 @@ export default function Home() {
       <Doctors />
       <Results />
       <Reviews />
-      <Footer />
       <FinalCTA />
+      <Footer />
     </main>
   );
 }
