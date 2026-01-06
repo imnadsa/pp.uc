@@ -19,7 +19,7 @@ export default function Hero() {
               mb-6
             "
           >
-            Брекеты от{' '}
+            Красивая улыбка за{' '}
             <span
               className="
                 inline-block
@@ -35,7 +35,7 @@ export default function Hero() {
                 align-middle
               "
             >
-              99 000 ₽
+              95 000 ₽
             </span>
             <br />
             под контролем ведущих ортодонтов России
