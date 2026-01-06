@@ -1,115 +1,77 @@
 import Button from './ui/Button';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="bg-[#eef7fd] py-16 lg:py-20 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-gradient-radial from-[#3AC3F3]/20 to-transparent rounded-full blur-3xl"></div>
+    <section className="bg-gradient-to-br from-[#eef7fd] to-white min-h-screen flex items-center py-8 px-4 relative overflow-hidden">
+      {/* Декоративные элементы */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-[10%] right-[5%] w-[300px] h-[300px] bg-gradient-radial from-[#3AC3F3]/30 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[10%] left-[5%] w-[250px] h-[250px] bg-gradient-radial from-[#287FB8]/20 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
+      <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="text-center">
+          
+          {/* H1 - Главный заголовок */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 sm:mb-6 text-gray-900 font-heading">
+            Брекеты от{' '}
+            <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#3AC3F3] to-[#287FB8] text-white rounded-lg shadow-lg transform -rotate-1">
+              99 000 ₽
+            </span>
+            <br className="hidden sm:block" />
+            <span className="block mt-2">под контролем ведущих</span>
+            <br className="hidden sm:block" />
+            <span className="block mt-2">ортодонтов России</span>
+          </h1>
 
-          {/* Левая часть (Текст) */}
-          <div className="order-1 lg:order-1 w-full"> {/* Добавил w-full на всякий случай */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-black leading-tight sm:leading-[1.15] mb-6 sm:mb-8 text-gray-900 font-heading tracking-tight sm:tracking-[0.02em]">
-              Выравниваем{' '}
-              <span className="inline-block px-2 pb-1 border-2 border-dashed border-[#287FB8]/40 text-[#287FB8] rounded-lg transform -rotate-1 mx-1">
-                любой прикус
-              </span>
-              <br />
-              и создаём{' '}
-              <span className="inline-block px-2 pb-1 border-2 border-dashed border-[#287FB8]/40 text-[#287FB8] rounded-lg transform rotate-1 mx-1 mt-2">
-                идеальную улыбку
-              </span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-              Под руководством{' '}
-              <span className="font-bold text-[#287FB8]">
-                лучших ортодонта Санкт-Петербурга, ТОП-5 ортодонтов России - Братьев Тихоновых
-              </span>
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed max-w-md">
-              Запишитесь на бесплатную диагностику и составление плана лечения уже сегодня
-            </p>
+          {/* H2 - Подзаголовок */}
+          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-4 sm:mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
+            Ваше лечение ведёт молодой врач, а ключевые решения утверждают ортодонты{' '}
+            <span className="font-bold text-[#287FB8]">ТОП-5 России</span>
+          </h2>
+
+          {/* Вторичная строка */}
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
+            Вы платите меньше — без риска для результата и качества лечения
+          </p>
+
+          {/* CTA кнопка */}
+          <div className="mb-6 sm:mb-8">
             <Button href="#appointment">
-              Записаться на консультацию
+              Получить бесплатную диагностику
             </Button>
+            <p className="text-xs sm:text-sm text-gray-500 mt-3">
+              Бесплатно · без обязательств · точный план лечения
+            </p>
           </div>
 
-          {/* Правая часть (Карточка врача) */}
-          <div className="order-2 lg:order-2 w-full">
-            <DoctorCard />
+          {/* Блок доверия */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
+            <TrustBadge text="46 лет суммарного клинического стажа" />
+            <TrustBadge text="ТОП-5 ортодонтов России" highlight />
+            <TrustBadge text="Кандидаты медицинских наук" />
           </div>
+
         </div>
       </div>
     </section>
   );
 }
 
-// --- КАРТОЧКА ВРАЧА (С УМЕНЬШЕННОЙ ВЫСОТОЙ) ---
-function DoctorCard() {
-  return (
-    <div className="relative rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.1)] max-w-lg mx-auto lg:ml-auto lg:mr-0 overflow-hidden">
-      
-      {/* 1. ФОТОГРАФИЯ */}
-      {/* 
-         ИЗМЕНЕНИЕ:
-         h-[400px] -> База для самых маленьких экранов
-         sm:h-[450px] -> Для телефонов побольше
-         md:h-[500px] -> Для планшетов
-         lg:h-[550px] -> Для десктопов
-      */}
-      <div className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]">
-        <Image
-          src="/astikhonov.png"
-          alt="Фото - Тихонов Андрей Викторович"
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-      </div>
-
-      {/* 2. БЛОК С ТЕКСТОМ (прижат к низу) */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
-        
-        <div className="text-white">
-          {/* Бейджи (над именем) */}
-          <div className="flex flex-col items-start gap-2 mb-3">
-            <InfoBadge text="46 лет общий стаж" />
-            <InfoBadge text="Кандидат Медицинских Наук" />
-            <InfoBadge text="Топ-5 ортодонтов в России" highlight />
-          </div>
-
-          {/* Имя (уменьшено на мобильных) */}
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading leading-tight drop-shadow-md">
-            Братья Тихоновы
-          </h3>
-        </div>
-      </div>
-
-    </div>
-  );
-}
-
-// --- Бейдж (уменьшены отступы) ---
-interface InfoBadgeProps {
+// --- Бейдж доверия ---
+interface TrustBadgeProps {
   text: string;
   highlight?: boolean;
 }
 
-function InfoBadge({ text, highlight }: InfoBadgeProps) {
+function TrustBadge({ text, highlight }: TrustBadgeProps) {
   return (
-    <div className={`inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full backdrop-blur-md transition-all ${
+    <div className={`inline-flex items-center px-3 py-2 sm:px-4 sm:py-2.5 rounded-full transition-all ${
       highlight 
-        ? 'bg-[#3AC3F3]/80 text-white font-bold' 
-        : 'bg-white/10 text-white border border-white/20'
+        ? 'bg-gradient-to-r from-[#3AC3F3] to-[#287FB8] text-white font-bold shadow-md' 
+        : 'bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 shadow-sm'
     }`}>
-      {/* Уменьшен текст на мобильных */}
-      <span className="text-xs sm:text-sm font-medium leading-tight tracking-wide">
+      <span className="text-xs sm:text-sm font-medium leading-tight">
         {text}
       </span>
     </div>
