@@ -19,7 +19,7 @@ export default function Hero() {
               mb-6
             "
           >
-            Красивая улыбка за{' '}
+            Исправим прикус навсегда за{' '}
             <span
               className="
                 inline-block
@@ -52,7 +52,7 @@ export default function Hero() {
               mb-4
             "
           >
-            Ваше лечение ведёт молодой врач,  
+            Ваше лечение на брекетах ведёт молодой врач,  
             а <span className="font-bold">каждое решение утверждают ортодонты ТОП-5 России</span>.
           </p>
 
