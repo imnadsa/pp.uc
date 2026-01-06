@@ -47,7 +47,7 @@ export default function Header() {
                 ПОЛНЫЙ ПОРЯДОК <sup className="text-[8px] lg:text-xs text-gray-500">®</sup>
               </span>
               <span className="text-[10px] lg:text-sm text-gray-500 font-medium mt-0.5 lg:mt-1">
-                Учебный центр
+                Учебный ортодонтический центр
               </span>
             </div>
           </Link>
