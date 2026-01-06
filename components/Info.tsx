@@ -12,7 +12,8 @@ export default function Info() {
             Учебный клинический центр
           </div>
           <h2 className="text-2xl lg:text-5xl font-black text-gray-900 font-heading leading-tight max-w-4xl">
-            Вот что у нас есть
+            Вот за счёт чего лечение стоит меньше,<br />
+            но остаётся безопасным
           </h2>
         </div>
 
