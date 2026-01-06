@@ -42,7 +42,7 @@ export default function Bonuses() {
         {/* CTA */}
         <div className="flex flex-col items-center text-center">
           <Button
-            href="#appointment"
+            openAppointment
             className="px-10 py-4 text-lg sm:text-xl"
           >
             Получить бесплатную диагностику
@@ -51,6 +51,7 @@ export default function Bonuses() {
             Бесплатно · без обязательств · точный план лечения
           </p>
         </div>
+
 
       </div>
     </section>
