@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Button from './ui/Button';
 
 export default function Appointment() {
   return (
@@ -146,10 +147,12 @@ export default function Appointment() {
                 </div>
 
                 {/* Кнопка */}
-                <button className="w-full py-4 rounded-xl bg-[#2274a4] hover:bg-[#1b5c82] text-white font-bold text-lg shadow-[0_8px_25px_rgba(34,116,164,0.3)] hover:shadow-[0_10px_30px_rgba(34,116,164,0.4)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 relative overflow-hidden group">
-                  <span className="relative z-10">Записаться на консультацию</span>
-                  <div className="absolute top-0 -left-full w-1/2 h-full bg-white/20 -skew-x-[20deg] group-hover:animate-shine"></div>
-                </button>
+                <Button
+                  openAppointment
+                  className="w-full"
+                >
+                  Записаться на консультацию
+                </Button>
 
               </form>
             </div>
