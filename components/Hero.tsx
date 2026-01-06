@@ -18,15 +18,25 @@ export default function Hero() {
         </h1>
 
         {/* ⬇️ РАСШИФРОВКА */}
-        <p className="text-base text-gray-900 leading-relaxed mb-3">
+        <p className="text-base text-gray-900 leading-relaxed mb-2">
           Ваше лечение ведёт молодой врач,  
           а <span className="font-semibold">каждое решение утверждают ортодонты ТОП-5 России</span>.
         </p>
 
         {/* ⬇️ ДОЖИМ */}
-        <p className="text-sm text-gray-700 mb-6">
+        <p className="text-sm text-gray-700 mb-4">
           Вы платите меньше — без риска для результата и качества лечения.
         </p>
+
+        {/* 🎁 БОНУСЫ (HERO-версия) */}
+        <div className="text-sm text-gray-900 mb-6">
+          <p className="font-medium mb-2">Сразу после заявки:</p>
+          <ul className="space-y-1">
+            <li>🎁 Бесплатная диагностика</li>
+            <li>🎁 Чистка — в подарок</li>
+            <li>🎁 Чек-лист лечения</li>
+          </ul>
+        </div>
 
         {/* 🔘 CTA */}
         <Button href="#appointment">
