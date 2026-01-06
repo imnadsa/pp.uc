@@ -54,7 +54,7 @@ export default function FinalCTA() {
             href="#appointment"
             className="px-10 py-4 text-lg sm:text-xl"
           >
-            Зафиксировать цену 95 000 ₽
+            Зафиксировать цену 93 500 ₽
           </Button>
 
           <p className="text-sm text-gray-400 mt-4">
