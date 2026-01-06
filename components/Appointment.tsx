@@ -75,9 +75,19 @@ export default function Appointment() {
                    </div>
                    <div>
                      <p className="text-[#155e85] font-bold text-lg lg:text-xl leading-tight">
-                       Бесплатная <span className="text-[#2274a4]">диагностика и составление плана лечение </span> *
+                       Бесплатная <span className="text-[#2274a4]">диагностика, консультация и составление плана лечение </span> *
                      </p>
-                     <p className="text-sm text-[#4a8bb3] mt-1 font-medium">Полная диагностика при внесении предоплаты</p>
+                   </div>
+                </div>
+
+                <div className="flex items-start gap-4 bg-white/70 backdrop-blur-sm p-5 rounded-2xl border border-white/50 shadow-sm hover:scale-[1.02] transition-transform duration-300">
+                   <div className="w-10 h-10 rounded-full bg-[#2274a4] flex items-center justify-center shrink-0 text-white mt-1 shadow-md">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                   </div>
+                   <div>
+                     <p className="text-[#155e85] font-bold text-lg lg:text-xl leading-tight">
+                       Комплексная <span className="text-[#2274a4]">чистка перед началом лечения </span> *
+                     </p>
                    </div>
                 </div>
 
