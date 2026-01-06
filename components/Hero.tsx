@@ -9,45 +9,79 @@ export default function Hero() {
         <div className="absolute bottom-[10%] left-[5%] w-[250px] h-[250px] bg-gradient-radial from-[#287FB8]/20 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto max-w-4xl relative z-10">
+      <div className="container mx-auto max-w-3xl relative z-10">
         <div className="text-center">
           
-          {/* H1 - Главный заголовок */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 sm:mb-6 text-gray-900 font-heading">
+          {/* Надзаголовок (для кого) */}
+          <p className="text-sm sm:text-base text-gray-600 mb-4 font-medium">
+            Для тех, кто хочет выровнять зубы по лучшей цене — без риска и с гарантией результата
+          </p>
+
+          {/* H1 - Главный заголовок с ценой */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight mb-6 text-gray-900 font-heading">
             Брекеты от{' '}
-            <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#3AC3F3] to-[#287FB8] text-white rounded-lg shadow-lg transform -rotate-1">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#3AC3F3] to-[#287FB8] text-white rounded-2xl shadow-lg">
               99 000 ₽
             </span>
             <br className="hidden sm:block" />
-            <span className="block mt-2">под контролем ведущих</span>
-            <br className="hidden sm:block" />
-            <span className="block mt-2">ортодонтов России</span>
+            <span className="block mt-3">под контролем ведущих ортодонтов России</span>
           </h1>
 
-          {/* H2 - Подзаголовок */}
-          <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-4 sm:mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
-            Ваше лечение ведёт молодой врач, а ключевые решения утверждают ортодонты{' '}
-            <span className="font-bold text-[#287FB8]">ТОП-5 России</span>
-          </h2>
-
-          {/* Вторичная строка */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
-            Вы платите меньше — без риска для результата и качества лечения
+          {/* Подзаголовок (выгода) */}
+          <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed max-w-2xl mx-auto">
+            Платите меньше — получаете лечение от молодых врачей, контролируемых экспертами{' '}
+            <span className="font-bold text-[#287FB8]">ТОП-5 в РФ</span>.{' '}
+            Качество как в премиум-клиниках, цена — в разы доступнее.
           </p>
 
+          {/* Блок концентрированных выгод (3 колонки) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+            <BenefitCard 
+              icon="✓"
+              text="Экономия до 50% от рыночной цены"
+            />
+            <BenefitCard 
+              icon="✓"
+              text="Контроль ТОП-5 ортодонтов на каждом этапе"
+            />
+            <BenefitCard 
+              icon="✓"
+              text="Рассрочка 0% на 24 месяца"
+            />
+          </div>
+
+          {/* Дополнительная выгода (почему дешевле) */}
+          <div className="bg-white/60 backdrop-blur-sm border border-[#3AC3F3]/30 rounded-2xl p-5 mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              <span className="font-bold text-[#287FB8]">Почему у нас дешевле:</span>{' '}
+              мы экономим на администраторах и координаторах — это клиника «врач-пациент». 
+              Вы платите только за лечение, без переплат за офисную инфраструктуру.
+            </p>
+          </div>
+
           {/* CTA кнопка */}
-          <div className="mb-6 sm:mb-8">
+          <div className="mb-6">
             <Button href="#appointment">
-              Получить бесплатную диагностику
+              Получить консультацию бесплатно
             </Button>
             <p className="text-xs sm:text-sm text-gray-500 mt-3">
               Бесплатно · без обязательств · точный план лечения
             </p>
           </div>
 
-          {/* Блок доверия */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
-            <TrustBadge text="46 лет суммарного клинического стажа" />
+          {/* Срочность / дефицит */}
+          <div className="bg-gradient-to-r from-[#FFE5E5] to-[#FFF5E5] border-2 border-[#FF6B6B]/30 rounded-2xl p-4 mb-8 max-w-xl mx-auto">
+            <p className="text-sm sm:text-base font-bold text-gray-900">
+              ⚡ Только <span className="text-[#FF6B6B]">10 мест в месяц</span> по специальной цене
+            </p>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">
+              Места распределяются строго по порядку заявок
+            </p>
+          </div>
+
+          {/* Блок доверия внизу */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <TrustBadge text="46 лет суммарного стажа" />
             <TrustBadge text="ТОП-5 ортодонтов России" highlight />
             <TrustBadge text="Кандидаты медицинских наук" />
           </div>
@@ -55,6 +89,21 @@ export default function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+// --- Карточка выгоды (3 колонки) ---
+interface BenefitCardProps {
+  icon: string;
+  text: string;
+}
+
+function BenefitCard({ icon, text }: BenefitCardProps) {
+  return (
+    <div className="bg-white/80 backdrop-blur-sm border border-[#3AC3F3]/20 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+      <div className="text-2xl text-[#3AC3F3] mb-2">{icon}</div>
+      <p className="text-sm text-gray-700 font-medium leading-tight">{text}</p>
+    </div>
   );
 }
 
