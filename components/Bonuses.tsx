@@ -6,7 +6,6 @@ export default function Bonuses() {
     <section className="bg-white py-16 lg:py-28">
       <div className="container-custom">
 
-        {/* ЗАГОЛОВОК */}
         <div className="max-w-4xl mx-auto text-center mb-14 lg:mb-24">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 font-heading leading-tight mb-6">
             Бонусы при записи через сайт
