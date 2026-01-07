@@ -35,7 +35,7 @@ export default function Hero() {
                 align-middle
               "
             >
-              95 000 ₽
+              3.990₽/месяц
             </span>
             <br />
             под контролем ведущих ортодонтов России
