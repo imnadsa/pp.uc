@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useModal } from './ModalProvider'; // 👈 Добавляем импорт
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLocationOpen, setIsLocationOpen] = useState(false);
+  const { open } = useModal(); // 👈 Получаем функцию открытия модального окна
 
   // Фиктивные данные клиник
   const clinics = [
@@ -27,21 +29,14 @@ export default function Header() {
     <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container-custom">
         
-        {/* 
-            Контейнер хедера. 
-            Убрали py (вертикальные отступы), чтобы логотип касался верха.
-            Задали фиксированную высоту h-20 (моб) и h-24 (десктоп), чтобы было пространство.
-        */}
         <div className="flex justify-between h-20 lg:h-28">
           
           {/* ЛОГОТИП (СЛЕВА) */}
           <Link href="/" className="flex items-start gap-4 shrink-0 group relative z-10">
-            {/* SVG Logo - Прижат к верху. Увеличен размер. */}
             <div className="w-[70px] h-[70px] lg:w-[100px] lg:h-[100px] text-[#3BC3F3] transition-transform duration-300 group-hover:translate-y-1">
               <LogoIcon />
             </div>
             
-            {/* Текст логотипа - Теперь виден и на мобильных */}
             <div className="flex flex-col mt-5 lg:mt-8">
               <span className="text-sm lg:text-xl font-black text-gray-900 uppercase tracking-wide leading-none">
                 ПОЛНЫЙ ПОРЯДОК <sup className="text-[8px] lg:text-xs text-gray-500">®</sup>
@@ -101,7 +96,10 @@ export default function Header() {
             </div>
 
             {/* Кнопка записи (Десктоп) */}
-            <button className="bg-[#3BC3F3] hover:bg-[#287FB8] text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg shadow-[#3BC3F3]/30">
+            <button 
+              onClick={open} // 👈 Открываем модальное окно
+              className="bg-[#3BC3F3] hover:bg-[#287FB8] text-white px-6 py-3 rounded-full font-bold text-sm transition-all shadow-lg shadow-[#3BC3F3]/30"
+            >
               Записаться на приём
             </button>
           </div>
@@ -115,7 +113,10 @@ export default function Header() {
              </a>
 
              {/* Кнопка Записаться (Компактная) */}
-             <button className="bg-[#3BC3F3] text-white px-4 py-2.5 rounded-full font-bold text-xs shadow-md active:scale-95 transition-transform">
+             <button 
+               onClick={open} // 👈 Открываем модальное окно
+               className="bg-[#3BC3F3] text-white px-4 py-2.5 rounded-full font-bold text-xs shadow-md active:scale-95 transition-transform"
+             >
               Записаться
             </button>
           </div>
