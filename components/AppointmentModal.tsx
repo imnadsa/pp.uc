@@ -19,7 +19,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
 
   if (!isOpen) return null;
 
-  // Функция форматирования телефона
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, '');
     const limited = digits.slice(0, 11);
@@ -48,7 +47,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
     setForm({ ...form, phone: formatted });
   };
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!form.consent) {
@@ -75,7 +74,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
 
     onClose();
     router.push('/thank-you');
-  }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
