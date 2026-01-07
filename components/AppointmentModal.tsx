@@ -134,6 +134,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
               
                 href="https://xn--d1ajebkedbcem2k7b.xn--p1ai/polzovatelskoe_soglashenie/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="underline"
               >
                 обработку персональных данных
