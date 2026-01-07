@@ -79,7 +79,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
       <div className="bg-[#2db2e8] rounded-2xl w-full max-w-md p-6 relative text-white">
-
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-white text-xl"
@@ -92,7 +91,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
         </h3>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-
           <input
             type="text"
             placeholder="Ваше имя"
