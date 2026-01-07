@@ -129,7 +129,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
             <span>
               Я согласен на{' '}
               
-                href="https://xn--d1ajebkedbcem2k7b.xn--p1ai/polzovatelskoe_soglashenie/"
+            <a  href="https://xn--d1ajebkedbcem2k7b.xn--p1ai/polzovatelskoe_soglashenie/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline"
