@@ -55,7 +55,7 @@ export default function FinalCTA() {
             openAppointment
             className="px-10 py-4 text-lg sm:text-xl"
           >
-            Зафиксировать цену <br />93 500 ₽
+            Зафиксировать цену <br />3.800₽/месяц
           </Button>
 
 
