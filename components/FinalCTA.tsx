@@ -29,7 +29,7 @@ export default function FinalCTA() {
 
           {/* Цена */}
           <p className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-            Идеальная улыбка за <span className="text-[#38bdf8]">93 500 ₽</span>
+            Идеальная улыбка за <span className="text-[#38bdf8]">3.800₽/месяц</span>
           </p>
 
           {/* Таймер */}
