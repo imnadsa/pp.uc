@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface AppointmentModalProps {
 }
 
 export default function AppointmentModal({ isOpen, onClose }: AppointmentModalProps) {
+  const router = useRouter();
   const [form, setForm] = useState({
     name: '',
     age: '',
@@ -19,13 +21,9 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
 
   // Функция форматирования телефона
   const formatPhone = (value: string) => {
-    // Убираем все, кроме цифр
     const digits = value.replace(/\D/g, '');
-    
-    // Ограничиваем до 11 цифр
     const limited = digits.slice(0, 11);
     
-    // Форматируем по шаблону +7 (XXX) XXX-XX-XX
     if (limited.length === 0) return '';
     
     let formatted = '+7';
@@ -58,54 +56,40 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
       return;
     }
 
-    // Проверяем, что телефон заполнен полностью (11 цифр)
     const digits = form.phone.replace(/\D/g, '');
     if (digits.length !== 11) {
       alert('Введите корректный номер телефона');
       return;
     }
 
-    try {
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          age: form.age,
-          phone: form.phone,
-          source: 'Header CTA', // 👈 Источник заявки
-        }),
-      });
+    await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        age: form.age,
+        phone: form.phone,
+        source: 'Popup CTA',
+      }),
+    });
 
-      // Закрываем модалку после успешной отправки
-      onClose();
-      
-      // Можно позже перенаправить на страницу благодарности:
-      // window.location.href = '/thank-you';
-      
-    } catch (error) {
-      console.error('Ошибка отправки:', error);
-      alert('Произошла ошибка. Попробуйте еще раз.');
-    }
+    onClose();
+    router.push('/thank-you');
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4" onClick={onClose}>
-      <div 
-        className="bg-[#2db2e8] rounded-2xl w-full max-w-md p-6 relative text-white"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+      <div className="bg-[#2db2e8] rounded-2xl w-full max-w-md p-6 relative text-white">
 
-        {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-white text-3xl hover:opacity-70 transition"
+          className="absolute top-3 right-3 text-white text-xl"
         >
           ×
         </button>
 
         <h3 className="text-2xl font-black text-center mb-6">
-          Запишитесь на консультацию
+          Запишитесь на приём специалиста
         </h3>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -124,8 +108,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
             placeholder="Возраст"
             className="w-full rounded-lg px-4 py-3 text-gray-900"
             required
-            min="1"
-            max="120"
             value={form.age}
             onChange={(e) => setForm({ ...form, age: e.target.value })}
           />
@@ -139,7 +121,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
             onChange={handlePhoneChange}
           />
 
-          {/* Consent */}
           <label className="flex items-start gap-2 text-sm">
             <input
               type="checkbox"
@@ -153,8 +134,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
               
                 href="https://xn--d1ajebkedbcem2k7b.xn--p1ai/polzovatelskoe_soglashenie/"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:opacity-80"
+                className="underline"
               >
                 обработку персональных данных
               </a>
@@ -168,7 +148,6 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
             Записаться на консультацию
           </button>
         </form>
-
       </div>
     </div>
   );
