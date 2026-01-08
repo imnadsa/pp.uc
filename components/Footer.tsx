@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useModal } from './ModalProvider'; // 👈 Добавьте этот импорт
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { open } = useModal(); // 👈 Добавьте этот хук
   
   const [activeMap, setActiveMap] = useState<string | null>(null);
 
@@ -82,7 +84,10 @@ export default function Footer() {
                   
                   {/* Кнопка Оставить заявку */}
                   <div>
-                      <button className="group relative w-full sm:w-auto py-5 px-10 rounded-2xl bg-[#3BC3F3] text-white font-bold text-lg overflow-hidden shadow-[0_0_25px_rgba(59,195,243,0.3)] hover:shadow-[0_0_40px_rgba(59,195,243,0.5)] transition-all active:scale-[0.98]">
+                      <button 
+                        onClick={open} // 👈 Добавьте этот обработчик
+                        className="group relative w-full sm:w-auto py-5 px-10 rounded-2xl bg-[#3BC3F3] text-white font-bold text-lg overflow-hidden shadow-[0_0_25px_rgba(59,195,243,0.3)] hover:shadow-[0_0_40px_rgba(59,195,243,0.5)] transition-all active:scale-[0.98]"
+                      >
                           <span className="relative z-10 flex items-center justify-center gap-3">
                               Оставить заявку
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
