@@ -87,7 +87,7 @@ export default function Appointment() {
                    </div>
                    <div>
                      <p className="text-[#155e85] font-bold text-lg lg:text-xl leading-tight">
-                       Комплексная <span className="text-[#2274a4]">чистка перед началом лечения </span> *
+                       Комплексная <span className="text-[#2274a4]">гигиена полости рта перед началом лечения </span> *
                      </p>
                    </div>
                 </div>
