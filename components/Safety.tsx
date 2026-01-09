@@ -8,7 +8,7 @@ export default function Safety() {
         {/* ЗАГОЛОВОК */}
         <div className="max-w-4xl mx-auto text-center mb-16 lg:mb-24">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 font-heading leading-tight mb-6">
-            Почему лечение под полным контролем — это безопасно
+            Почему лечение под полным контролем <br />— это безопасно
           </h2>
           <p className="text-gray-600 text-lg sm:text-xl lg:text-2xl leading-relaxed">
             Мы выстроили систему, в которой ошибки исключены
