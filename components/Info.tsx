@@ -41,7 +41,7 @@ export default function Info() {
               <InfoCard 
                 value="1+1" 
                 label="врач + наставник" 
-                fullLabel="каждый пациент ведётся врачом и наставником"
+                fullLabel="каждый пациент ведётся врачом и курируется наставником"
               />
             </div>
 
