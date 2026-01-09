@@ -8,7 +8,7 @@ export default function Benefits() {
         {/* ЗАГОЛОВОК */}
         <div className="max-w-4xl mx-auto text-center mb-14 lg:mb-24">
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 font-heading leading-tight mb-6">
-            Почему вам можно доверить своё лечение
+            Почему нам можно доверить своё лечение
           </h2>
           <p className="text-gray-600 text-lg sm:text-xl lg:text-2xl leading-relaxed">
             Всё, что снижает риски и делает результат предсказуемым
