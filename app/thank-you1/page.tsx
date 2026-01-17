@@ -31,7 +31,7 @@ export default function ThankYou1Page() {
             Мы анализируем вашу ситуацию и готовим индивидуальный план лечения
           </p>
           <p className="text-lg sm:text-xl lg:text-2xl text-white/85 leading-relaxed">
-            Врач-ортодонт свяжется с вами в течение 30 минут с готовым предложением
+            Мы свяжемся с вами в течение 10 минут с готовым предложением
           </p>
         </div>
 
