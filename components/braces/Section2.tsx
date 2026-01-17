@@ -11,7 +11,7 @@ export default function Section2() {
             {/* Картинка слева */}
             <div className="relative aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden">
               <Image
-                src="/team1.jpg"
+                src="/team1.png"
                 alt="Стоматолог за работой"
                 fill
                 className="object-cover"
