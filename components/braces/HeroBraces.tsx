@@ -4,7 +4,29 @@ export default function HeroBraces() {
   const scrollToForm = () => {
     const formElement = document.getElementById('multistep-form');
     if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetPosition = formElement.offsetTop - 100; // Отступ сверху
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // 1.5 секунды (медленнее)
+      let start: number | null = null;
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      };
+
+      // Easing функция для плавности
+      const ease = (t: number, b: number, c: number, d: number) => {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+      };
+
+      requestAnimationFrame(animation);
     }
   };
 
