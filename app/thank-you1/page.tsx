@@ -31,7 +31,7 @@ export default function ThankYou1Page() {
             Мы анализируем вашу ситуацию и готовим индивидуальный план лечения
           </p>
           <p className="text-lg sm:text-xl lg:text-2xl text-white/85 leading-relaxed">
-            Мы свяжемся с вами в течение 10 минут с готовым предложением.
+            Врач-ортодонт свяжется с вами в течение 30 минут с готовым предложением
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function ThankYou1Page() {
 
         {/* Кнопка возврата */}
         <Link 
-          href="/"
+          href="/braces"
           className="inline-flex items-center gap-3 bg-white text-primary px-8 py-4 lg:px-10 lg:py-5 rounded-full font-bold text-base lg:text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
         >
           <svg 
