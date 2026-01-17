@@ -97,7 +97,7 @@ export default function MultiStepForm() {
   };
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-900">
+    <section id="multistep-form" className="py-16 lg:py-24 bg-gray-900">
       <div className="container-custom">
         <div className="bg-[#1a1d29] rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto">
       {/* Заголовок + Прогресс */}
