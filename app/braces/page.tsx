@@ -1,4 +1,3 @@
-import Header from '@/components/Header';
 import HeroBraces from '@/components/braces/HeroBraces';
 import Footer from '@/components/Footer';
 import Section2 from '@/components/braces/Section2';
@@ -11,7 +10,6 @@ export default function BracesPage() {
   return (
     <ModalProvider>
       <main className="min-h-screen">
-        <Header />
         <HeroBraces />
         <Section2 />
         <Section3 />
