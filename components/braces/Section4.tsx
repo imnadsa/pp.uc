@@ -4,8 +4,8 @@ export default function Section4() {
   return (
     <section className="py-16 lg:py-24 bg-black">
       <div className="container-custom">
-        <div className="bg-gray-100 rounded-3xl p-12 lg:p-20 max-w-4xl">
-          <div className="space-y-8">
+        <div className="bg-gray-100 rounded-3xl p-12 lg:p-20 max-w-4xl mx-auto">
+          <div className="space-y-8 text-center">
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
               Хотите избавится от проблем с зубами?
             </h2>
