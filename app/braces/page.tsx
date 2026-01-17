@@ -1,5 +1,5 @@
 import HeroBraces from '@/components/braces/HeroBraces';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer2';
 import Section2 from '@/components/braces/Section2';
 import Section3 from '@/components/braces/Section3';
 import Section4 from '@/components/braces/Section4';
@@ -16,7 +16,7 @@ export default function BracesPage() {
         <Section4 />
         <MultiStepForm />
         {/* Здесь можно добавить другие блоки */}
-        <Footer />
+        <Footer2 />
       </main>
     </ModalProvider>
   );
