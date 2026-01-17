@@ -97,7 +97,7 @@ export default function MultiStepForm() {
   };
 
   return (
-    <div className="bg-gray-900 rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto">
+    <div className="bg-[#1a1d29] rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto">
       {/* Заголовок + Прогресс */}
       <div className="mb-8">
         <div className="flex items-start gap-4 mb-6">
