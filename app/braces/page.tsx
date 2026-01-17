@@ -14,7 +14,7 @@ export default function BracesPage() {
         <HeroBraces />
         <Section2 />
         <Section3 />
-        <Section4 >
+        <Section4 />
         {/* Здесь можно добавить другие блоки */}
         <Footer />
       </main>
