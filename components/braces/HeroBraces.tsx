@@ -42,7 +42,7 @@ export default function HeroBraces() {
           {/* Основной текст блоками */}
           <div className="space-y-6 text-lg sm:text-xl lg:text-2xl text-gray-700 mb-10">
             <p className="leading-relaxed">
-              Избавьтесь от <strong>брексизма, скрежета, стираемости зубов</strong>, постоянно выпадающих пломб, щелей, скученности, болей в челюсти и других искривлений
+              Избавьтесь от <strong>бруксизма, скрежета, стираемости зубов</strong>, постоянно выпадающих пломб, щелей, скученности, болей в челюсти и других искривлений
             </p>
 
             <p className="leading-relaxed font-medium text-gray-900">
