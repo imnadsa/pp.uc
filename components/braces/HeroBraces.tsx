@@ -7,7 +7,7 @@ export default function HeroBraces() {
       const targetPosition = formElement.offsetTop - 100; // Отступ сверху
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 3000; // 1.5 секунды (медленнее)
+      const duration = 6000; // 1.5 секунды (медленнее)
       let start: number | null = null;
 
       const animation = (currentTime: number) => {
