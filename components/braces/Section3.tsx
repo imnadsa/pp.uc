@@ -24,36 +24,36 @@ export default function Section3() {
               {/* Карточка 01 */}
               <div className="bg-[#252837] rounded-3xl p-8 hover:bg-[#2d3142] transition-colors">
                 <div className="text-orange-400 text-base font-bold mb-6">01</div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Щелчки</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Искривления зубов</h3>
                 <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                  Хрусты, в челюсти при открывании рта, во сне, при приеме пищи
+                  Отдельных зубов или полностью всей челюсти, бруксизм, скученность зубов
                 </p>
               </div>
 
               {/* Карточка 02 */}
               <div className="bg-[#252837] rounded-3xl p-8 hover:bg-[#2d3142] transition-colors">
                 <div className="text-orange-400 text-base font-bold mb-6">02</div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Боли</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Щелчки</h3>
                 <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                  В челюсти во время еды или разговора
+                  Хрусты, в челюсти при открывании рта, во сне, при приеме пищи
                 </p>
               </div>
 
               {/* Карточка 03 */}
               <div className="bg-[#252837] rounded-3xl p-8 hover:bg-[#2d3142] transition-colors">
                 <div className="text-orange-400 text-base font-bold mb-6">03</div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Не можете открыть рот до конца</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Боли</h3>
                 <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                  Ощущение что что-то мешает, или появляется боль
+                  В челюсти во время еды или разговора
                 </p>
               </div>
 
               {/* Карточка 04 */}
               <div className="bg-[#252837] rounded-3xl p-8 hover:bg-[#2d3142] transition-colors">
                 <div className="text-orange-400 text-base font-bold mb-6">04</div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Искривления</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">Не можете открыть рот до конца</h3>
                 <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
-                  Отдельных зубов или полностью всей челюсти, бруксизм, скученность зубов
+                  Ощущение что что-то мешает, или появляется боль 
                 </p>
               </div>
             </div>
