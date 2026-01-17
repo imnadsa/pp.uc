@@ -97,7 +97,9 @@ export default function MultiStepForm() {
   };
 
   return (
-    <div className="bg-[#1a1d29] rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto">
+    <section className="py-16 lg:py-24 bg-gray-900">
+      <div className="container-custom">
+        <div className="bg-[#1a1d29] rounded-3xl p-8 lg:p-12 max-w-5xl mx-auto">
       {/* Заголовок + Прогресс */}
       <div className="mb-8">
         <div className="flex items-start gap-4 mb-6">
@@ -318,5 +320,7 @@ export default function MultiStepForm() {
         </div>
       </form>
     </div>
+      </div>
+    </section>
   );
 }
