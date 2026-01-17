@@ -89,7 +89,7 @@ export default function MultiStepForm() {
         }),
       });
 
-      router.push('/thank-you');
+      router.push('/thank-you1');
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Произошла ошибка. Попробуйте еще раз.');
