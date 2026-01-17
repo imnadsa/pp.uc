@@ -136,6 +136,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="space-y-1 lg:text-right">
+              <p>Лицензия № Л041-01148-78/00361590</p>
               <p>ООО "Улыбка в порядке"</p>
               <p>ИНН 7816704653</p>
             </div>
