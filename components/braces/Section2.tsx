@@ -11,8 +11,8 @@ export default function Section2() {
             {/* Картинка слева */}
             <div className="relative aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden">
               <Image
-                src="/team1.png"
-                alt="стоматологи с книгой"
+                src="/team1.jpg"
+                alt="Стоматолог за работой"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -23,56 +23,61 @@ export default function Section2() {
             <div className="space-y-8">
               {/* Заголовок */}
               <div>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-                  В 90% случаев —
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  Кривые зубы — это не только эстетика
                 </h2>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-                  проблема не в пломбах
-                </h2>
-                <p className="text-2xl sm:text-3xl lg:text-4xl text-gray-400 font-light">
-                  проблема в другом
+                <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed">
+                  Неправильный прикус разрушает ваши зубы изнутри, и большинство клиник об этом молчат
                 </p>
               </div>
 
-              {/* Блоки причин */}
+              {/* Блоки последствий */}
               <div className="space-y-6">
-                {/* Вы чувствовали */}
+                {/* Стирается эмаль */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
-                    Вы чувствовали
+                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-3">
+                    Стирается эмаль — чувствительность и кариес
                   </h3>
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                    Когда вам показывали очередной план лечения в клинике с коронками, имплантами, что-то здесь не так?
+                    Когда зубы смыкаются неправильно, они постоянно трутся друг о друга. Эмаль истончается, появляется чувствительность к горячему и холодному. А за ней — кариес, который никакие пломбы не остановят, пока не исправлен прикус.
                   </p>
                 </div>
 
-                {/* Появлялось ощущение */}
+                {/* Выпадают пломбы */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
-                    Появлялось ощущение
+                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-3">
+                    Постоянно выпадают пломбы — бесконечные переделки
                   </h3>
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                    Что вам пытаются продать ненужное лечение?
+                    Пломба держится год-два и снова выпадает? Это не вина врача. Это неправильная нагрузка из-за прикуса. Вы будете переделывать одни и те же зубы снова и снова, пока не устраните причину.
                   </p>
                 </div>
 
-                {/* Многие скрывают */}
+                {/* Боли в челюсти */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
-                    Многие скрывают
+                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-3">
+                    Боли в челюсти, головные боли, мигрени
                   </h3>
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                    Или просто не знают что в таких случаях — проблема в прикусе, а не кариесе, пломбах.
+                    Неправильный прикус перегружает челюстной сустав. Отсюда — щелчки, хруст, боль при жевании, головные боли и даже мигрени. Обезболивающие не помогают, потому что причина в челюсти.
                   </p>
                 </div>
 
-                {/* Вас привязывают */}
+                {/* Скрип по ночам */}
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-2">
-                    Вас привязывают к клинике
+                  <h3 className="text-xl sm:text-2xl font-bold text-orange-500 mb-3">
+                    Скрип зубами (бруксизм) — разрушение зубов
                   </h3>
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                    Чтобы вы еще больше ходили лечится к ним, постоянно переделывая зубы.
+                    Организм пытается "притереть" зубы друг к другу. Вы скрипите во сне, стираете зубы до пеньков. Капы не решают проблему — они только защищают то, что осталось. А зубы продолжают разрушаться.
+                  </p>
+                </div>
+
+                {/* Почему молчат */}
+                <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-lg">
+                  <p className="text-gray-800 text-base sm:text-lg leading-relaxed font-medium">
+                    <strong className="text-orange-600">Почему об этом молчат?</strong><br/>
+                    Потому что клиникам выгоднее лечить последствия годами: ставить пломбы, коронки, импланты. А исправление прикуса — это одна процедура, которая убирает все проблемы навсегда.
                   </p>
                 </div>
               </div>
