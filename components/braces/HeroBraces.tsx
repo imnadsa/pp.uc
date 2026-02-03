@@ -55,12 +55,12 @@ export default function HeroBraces() {
 
           {/* Кнопка CTA */}
           <div className="flex justify-center">
-            <button
-              onClick={scrollToForm}
+            
+              href="tel:+78124216928"
               className="inline-block px-12 py-5 bg-primary text-white text-xl sm:text-2xl md:text-3xl font-bold rounded-xl hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
             >
-              Получить план лечения и стоимость
-            </button>
+              Позвонить нам и обсудить все за 2 минуты
+            </a>
           </div>
         </div>
       </div>
