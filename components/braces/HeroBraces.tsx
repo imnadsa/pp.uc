@@ -9,6 +9,7 @@ export default function HeroBraces() {
       const distance = targetPosition - startPosition;
       const duration = 1000;
       let start: number | null = null;
+      
       const animation = (currentTime: number) => {
         if (start === null) start = currentTime;
         const timeElapsed = currentTime - start;
@@ -16,16 +17,18 @@ export default function HeroBraces() {
         window.scrollTo(0, run);
         if (timeElapsed < duration) requestAnimationFrame(animation);
       };
+      
       const ease = (t: number, b: number, c: number, d: number) => {
         t /= d / 2;
         if (t < 1) return c / 2 * t * t + b;
         t--;
         return -c / 2 * (t * (t - 2) - 1) + b;
       };
+      
       requestAnimationFrame(animation);
     }
   };
-  
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white overflow-hidden py-12">
       <div className="container-custom">
